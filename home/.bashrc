@@ -5,11 +5,11 @@ if command -v uname > /dev/null; then
   arch="$(uname -m)"
 fi
 if [ "${arch}" = x86_64 -a -f /etc/fedora-release ]; then
-  # green
-  export PS1="\[\e[1;32m\]\$\[\e[00m\] "
+    # green
+    export PS1="\[\e[1;32m\]\$\[\e[00m\] "
 else
-  # red
-  export PS1="\h|${arch}\[\e[1;31m\]\$\[\e[00m\] "
+    # red
+    export PS1="\h|${arch}\[\e[1;31m\]\$\[\e[00m\] "
 fi
 unset arch
 
@@ -17,11 +17,11 @@ unset arch
 # https://wiki.archlinux.org/title/Alacritty#%22user@host:cwd%22_in_window_title_bar
 case "${TERM}" in
 alacritty*)
-  PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s %s\007" "${PWD/#$HOME/\~}" "${TERM}"'
-  ;;
+    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s %s\007" "${PWD/#$HOME/\~}" "${TERM}"'
+    ;;
 *)
-  export TERM=xterm-256color
-  ;;
+    export TERM=xterm-256color
+    ;;
 esac
 
 export CLICOLOR=1
