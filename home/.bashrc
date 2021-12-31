@@ -2,7 +2,7 @@
 
 arch=""
 if command -v uname > /dev/null; then
-  arch="$(uname -m)"
+    arch="$(uname -m)"
 fi
 if [ "${arch}" = x86_64 -a -f /etc/fedora-release ]; then
     # green
