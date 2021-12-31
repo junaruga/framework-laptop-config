@@ -1,4 +1,4 @@
-# Configuration files for Framework Laptop.
+# Configuration files for Framework Laptop
 
 This repository is to share a part of my configuration files on Framework Laptop for people who are interested in using Sway or i3 window manager on Framework Laptop. My environment is Fedora Linux. I don't intend to update this repository regularly. The files are just a snapshot.
 
