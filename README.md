@@ -23,6 +23,16 @@ The following config files are included:
 
 Public Domain (CC0)
 
+## Screenshots
+
+### Sway
+
+![Sway screenshot](image/screenshot_sway.png)
+
+### i3
+
+![i3 screenshot](image/screenshot_i3.png)
+
 ## File list
 
 The directory structure is equivalent with the actual directores under the root "/".
