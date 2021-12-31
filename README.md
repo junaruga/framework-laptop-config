@@ -86,3 +86,7 @@ Here are useful examples that you may refer.
   ```
 
 * i3 config: https://github.com/201dreamers/sway-config
+
+## Call to action
+
+Let's share your config files for Framework Laptop!
