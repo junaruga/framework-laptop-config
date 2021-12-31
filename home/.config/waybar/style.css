@@ -124,7 +124,14 @@ window#waybar.chromium {
     }
 }
 
+/* Battery states */
+/* https://github.com/Alexays/Waybar/wiki/States */
+#battery.warning:not(.charging) {
+    background: orange;
+}
+
 #battery.critical:not(.charging) {
+    /* Red */
     background-color: #f53c3c;
     color: #ffffff;
     animation-name: blink;
