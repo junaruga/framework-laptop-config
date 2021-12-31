@@ -82,6 +82,34 @@ usr/
                 └── capslock.org
 ```
 
+## Tested versions & memo
+
+```
+$ rpm -q sway waybar i3 i3status alacritty terminator firefox gimp fcitx5
+sway-1.6.1-3.fc35.x86_64
+waybar-0.9.8-2.fc35.x86_64
+i3-4.20.1-1.fc35.x86_64
+i3status-2.14-1.fc35.x86_64
+alacritty-0.9.0-1.fc35.x86_64
+terminator-2.1.1-3.fc35.noarch
+firefox-95.0.2-2.fc35.x86_64
+gimp-2.10.28-1.fc35.x86_64
+fcitx5-5.0.11-1.fc35.x86_64
+```
+
+### Memo
+
+In my experience,
+
+* Sway: A better functionality than i3.
+  * Firefox crashed when doing bookmark on Sway.
+  * Gimp freezed when opening a window to resize an image on Sway.
+  * Alacritty doesn't work with fcitx5 for the Japanese input on Sway.
+* i3: A better stability than Sway.
+  * I needed to set a background image with another application such as `feh`.
+  * I needed to set input/output devices with `/etc/X11/xorg.conf.d/*.conf`.
+  * I couldn't find a way to set a window gap setting on i3.
+
 ## References
 
 Here are useful examples that you may refer.
