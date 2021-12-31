@@ -10,6 +10,14 @@ set $mod2 Mod1
 
 font pango:monospace 11
 
+# Window gaps settings.
+gaps inner 6
+gaps outer 0
+smart_gaps on
+# The `default_border pixel` option hides the window title bar.
+default_border normal
+hide_edge_borders both
+
 # Home row direction keys, like vim
 set $left h
 set $down j
