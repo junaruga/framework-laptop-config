@@ -10,6 +10,7 @@ The following config files are included:
   * Using `home/.xkb/` optionally. Sway has a feature to load `~/.xkb`.
 * i3 (window manager)
   * Using i3status.
+  * Using `etc/X11/xorg.conf.d/*.conf` for the input device settings.
   * Using Compton.
   * Using `.Xmodmap`. Only i3 loads the `.Xmodmap`. Sway doesn't load it.
   * Using `usr/share/X11/xkb/` optionally. But make sure that it's risky to edit files under the /usr.
@@ -39,6 +40,11 @@ The directory structure is equivalent with the actual directores under the root 
 
 ```
 $ tree -a home/ usr/
+etc/
+└── X11
+    └── xorg.conf.d
+        ├── 00-keyboard.conf
+        └── 40-trackpad.conf
 home/
 ├── .bash_profile
 ├── .bashrc
@@ -80,6 +86,8 @@ usr/
             └── symbols
                 ├── capslock
                 └── capslock.org
+
+18 directories, 25 files
 ```
 
 ## Tested versions & memo
