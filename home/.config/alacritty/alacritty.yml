@@ -136,7 +136,7 @@ colors-schemes:
 # colors: *colors-iceberg
 colors: *colors-tomorrow-night
 
-background_opacity: 0.95
+background_opacity: 0.90
 
 selection:
   semantic_escape_chars: ",│`|\"' ()[]{}<>\t"
