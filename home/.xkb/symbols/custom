@@ -1,0 +1,8 @@
+hidden partial modifier_keys
+xkb_symbols "caps_escape_shifted_compose" {
+    key <CAPS> {
+        type[Group1] = "TWO_LEVEL",
+        symbols[Group1] = [ Escape, Multi_key ],
+        actions[Group1] = [ NoAction(), NoAction() ]
+    };
+};

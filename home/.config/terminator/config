@@ -1,0 +1,88 @@
+[global_config]
+  geometry_hinting = True
+  window_state = maximise
+  extra_styling = False
+  tab_position = hidden
+  broadcast_default = off
+  scroll_tabbar = True
+  title_transmit_bg_color = "#42537f"
+  title_receive_bg_color = "#7298b3"
+  title_inactive_bg_color = "#555753"
+  inactive_color_offset = 1.0
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  always_split_with_profile = True
+  title_font = Monospace 11
+[keybindings]
+  zoom_in = None
+  zoom_out = None
+  zoom_normal = None
+  new_tab = <Alt>t
+  cycle_next = None
+  cycle_prev = None
+  go_next = None
+  go_prev = None
+  go_up = None
+  go_down = None
+  go_left = None
+  go_right = None
+  rotate_cw = None
+  rotate_ccw = None
+  split_horiz = <Alt>s
+  split_vert = <Shift><Alt>s
+  close_term = None
+  copy = <Alt>c
+  paste = <Alt>v
+  toggle_scrollbar = None
+  search = None
+  close_window = None
+  resize_up = None
+  resize_down = None
+  resize_left = None
+  resize_right = None
+  move_tab_right = <Alt>l
+  move_tab_left = <Alt>h
+  toggle_zoom = None
+  scaled_zoom = None
+  next_tab = <Alt>Right
+  prev_tab = <Alt>Left
+  reset = None
+  reset_clear = None
+  hide_window = None
+  group_all = None
+  ungroup_all = None
+  group_tab = None
+  ungroup_tab = None
+  new_window = ""
+  new_terminator = <Shift><Alt>n
+  broadcast_off = None
+  broadcast_group = None
+  broadcast_all = None
+  insert_number = None
+  insert_padded = None
+  edit_window_title = <Alt>e
+  layout_launcher = None
+  help = None
+[profiles]
+  [[default]]
+    icon_bell = False
+    background_darkness = 0.9
+    background_type = transparent
+    cursor_blink = False
+    cursor_color = "#4e9a06"
+    font = Monospace 11
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scroll_on_keystroke = False
+    scrollback_lines = 10000
+    word_chars = "-A-Za-z0-9,./?%&#:_~=+"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
