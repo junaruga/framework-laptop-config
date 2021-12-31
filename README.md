@@ -76,7 +76,9 @@ usr/
 
 Here are useful examples that you may refer.
 
-* Sway config: https://github.com/LukeSmithxyz/voidrice
+* Sway config: https://github.com/201dreamers/sway-config
+
+* i3 config: https://github.com/LukeSmithxyz/voidrice
 
   ```
   $ git checkout https://github.com/LukeSmithxyz/voidrice.git
@@ -84,8 +86,6 @@ Here are useful examples that you may refer.
   $ git checkout ad161d9363aadeb9f4ec3c852ca6c96162f2b4b0
   $ vi .config/i3/config
   ```
-
-* i3 config: https://github.com/201dreamers/sway-config
 
 ## Call to action
 
