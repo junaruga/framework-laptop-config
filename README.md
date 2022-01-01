@@ -39,7 +39,7 @@ Public Domain (CC0)
 The directory structure is equivalent with the actual directores under the root "/".
 
 ```
-$ tree -a home/ usr/
+$ tree -a etc/ home/ usr/
 etc/
 └── X11
     └── xorg.conf.d
