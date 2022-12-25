@@ -936,26 +936,31 @@
 
 ! layout	option	=	symbols
   $threelevellayouts	grp:alts_toggle = +level3(ralt_switch_for_alts_toggle)
+  *			lv3:ralt_alt	= +level3(ralt_alt)
   *			misc:typo 	= +typo(base)
   *			misc:apl	= +apl(level3)
 
 ! layout[1]	option	=	symbols
   $threelevellayouts	grp:alts_toggle = +level3(ralt_switch_for_alts_toggle):1
+  *			lv3:ralt_alt	= +level3(ralt_alt):1
   *			misc:typo 	= +typo(base):1
   *			misc:apl	= +apl(level3):1
 
 ! layout[2]	option	=	symbols
   $threelevellayouts	grp:alts_toggle = +level3(ralt_switch_for_alts_toggle):2
+  *			lv3:ralt_alt	= +level3(ralt_alt):2
   *			misc:typo 	= +typo(base):2
   *			misc:apl	= +apl(level3):2
 
 ! layout[3]	option	=	symbols
   $threelevellayouts	grp:alts_toggle = +level3(ralt_switch_for_alts_toggle):3
+  *			lv3:ralt_alt	= +level3(ralt_alt):3
   *			misc:typo 	= +typo(base):3
   *			misc:apl	= +apl(level3):3
 
 ! layout[4]	option	=	symbols
   $threelevellayouts	grp:alts_toggle = +level3(ralt_switch_for_alts_toggle):4
+  *			lv3:ralt_alt	= +level3(ralt_alt):4
   *			misc:typo 	= +typo(base):4
   *			misc:apl	= +apl(level3):4
 
@@ -1022,7 +1027,6 @@
   lv3:switch		=	+level3(switch)
   lv3:ralt_switch	=	+level3(ralt_switch)
   lv3:ralt_switch_multikey	=	+level3(ralt_switch_multikey)
-  lv3:ralt_alt		=	+level3(ralt_alt)
   lv3:lalt_switch	=	+level3(lalt_switch)
   lv3:alt_switch	=	+level3(alt_switch)
   lv3:menu_switch	=	+level3(menu_switch)
@@ -1038,7 +1042,7 @@
   caps:swapescape	=	+capslock(swapescape)
   caps:escape		=	+capslock(escape)
   caps:escape_shifted_capslock	=	+capslock(escape_shifted_capslock)
-  caps:escape_shifted_compose =	+capslock(escape_shifted_compose)
+  caps:escape_shifted_compose	=	+capslock(escape_shifted_compose)
   caps:backspace	=	+capslock(backspace)
   caps:super		=	+capslock(super)
   caps:hyper		=	+capslock(hyper)
@@ -1077,6 +1081,7 @@
   compose:paus		=	+compose(paus)
   compose:prsc		=	+compose(prsc)
   compose:sclk		=	+compose(sclk)
+  compose:shifted_escape =	+compose(shifted_escape)
   srvrkeys:none		=	+srvr_ctrl(no_srvr_keys)
   eurosign:e		=	+eurosign(e)
   eurosign:2		=	+eurosign(2)
@@ -1090,7 +1095,7 @@
   keypad:future         =	+keypad(future)
   keypad:future_wang    =	+keypad(future_wang)
   keypad:hex            =	+keypad(ops)+keypad(hex)
-  keypad:atm            =	+keypad(ops)+keypad(hex)+keypad(atm)  
+  keypad:atm            =	+keypad(ops)+keypad(hex)+keypad(atm)
   nbsp:none             =	+nbsp(none)
   nbsp:level2           =	+nbsp(level2)
   nbsp:level3           =	+nbsp(level3)
