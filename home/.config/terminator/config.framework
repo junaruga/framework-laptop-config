@@ -13,10 +13,10 @@
   always_split_with_profile = True
   title_font = Monospace 11
 [keybindings]
-  zoom_in = None
-  zoom_out = None
+  zoom_in = <Alt>plus
+  zoom_out = <Alt>minus
   zoom_normal = None
-  new_tab = <Alt>t
+  new_tab = None
   cycle_next = None
   cycle_prev = None
   go_next = None
@@ -27,8 +27,8 @@
   go_right = None
   rotate_cw = None
   rotate_ccw = None
-  split_horiz = <Alt>s
-  split_vert = <Shift><Alt>s
+  split_horiz = None
+  split_vert = None
   close_term = None
   copy = <Alt>c
   paste = <Alt>v
@@ -39,12 +39,12 @@
   resize_down = None
   resize_left = None
   resize_right = None
-  move_tab_right = <Alt>l
-  move_tab_left = <Alt>h
+  move_tab_right = None
+  move_tab_left = None
   toggle_zoom = None
   scaled_zoom = None
-  next_tab = <Alt>Right
-  prev_tab = <Alt>Left
+  next_tab = None
+  prev_tab = None
   reset = None
   reset_clear = None
   hide_window = None
@@ -53,19 +53,19 @@
   group_tab = None
   ungroup_tab = None
   new_window = ""
-  new_terminator = <Shift><Alt>n
+  new_terminator = None
   broadcast_off = None
   broadcast_group = None
   broadcast_all = None
   insert_number = None
   insert_padded = None
-  edit_window_title = <Alt>e
+  edit_window_title = None
   layout_launcher = None
   help = None
 [profiles]
   [[default]]
     icon_bell = False
-    background_darkness = 0.9
+    background_darkness = 0.80
     background_type = transparent
     cursor_blink = False
     cursor_color = "#4e9a06"

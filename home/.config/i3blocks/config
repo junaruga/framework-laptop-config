@@ -1,0 +1,123 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+#command=~/.local/bin/i3blocks/$BLOCK_NAME
+# See https://github.com/vivien/i3blocks-contrib
+command=~/etc/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+#[volume]
+# https://github.com/vivien/i3blocks-contrib/tree/master/volume
+#label=♪
+#interval=once
+#signal=1
+
+[volume-pipewire]
+# https://github.com/vivien/i3blocks-contrib/tree/master/volume-pipewire
+# volume-pipewire: use default sink if inactive
+# https://github.com/vivien/i3blocks-contrib/pull/433
+command=~/bin/i3blocks/$BLOCK_NAME
+#command=~/git/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME
+interval=once
+signal=1
+LONG_FORMAT="${SYMB} ${VOL}%"
+SHORT_FORMAT="${SYMB} ${VOL}%"
+# Set the symbols as the default values are not the best.
+# volume-pipewire: Set one space after symbol character rather than 3 spaces.
+# https://github.com/vivien/i3blocks-contrib/pull/474
+AUDIO_HIGH_SYMBOL=
+#AUDIO_MED_THRESH=50
+AUDIO_MED_SYMBOL=
+#AUDIO_LOW_THRESH=0
+AUDIO_LOW_SYMBOL=
+AUDIO_MUTED_SYMBOL=
+
+[wifi]
+# https://github.com/vivien/i3blocks-contrib/tree/master/wifi
+INTERFACE=wlp170s0
+#label=W 
+label= 
+interval=10
+
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+[cpu_usage]
+# https://github.com/vivien/i3blocks-contrib/tree/master/cpu_usage
+label=CPU 
+interval=10
+min_width=CPU 0.00%
+
+[load_average]
+# https://github.com/vivien/i3blocks-contrib/tree/master/load_average
+label=Load 
+interval=10
+
+[memory]
+# https://github.com/vivien/i3blocks-contrib/tree/master/memory
+label=Mem 
+interval=30
+
+[temperature]
+# https://github.com/vivien/i3blocks-contrib/tree/master/temperature
+#label=Temp 
+label= 
+interval=10
+T_WARN=70
+T_CRIT=90
+
+[brightness]
+#command=~/etc/i3blocks-contrib/brightness/bin/brightness -a /sys/class/backlight/intel_backlight/actual_brightness -m /sys/class/backlight/intel_backlight/max_brightness
+# Apply a fork version.
+# https://github.com/junaruga/i3blocks-contrib/tree/mine
+# brightness: Manage the label format on the label property.
+# https://github.com/vivien/i3blocks-contrib/pull/473
+# brightness: re-init file descriptors set. Fix high CPU consumption
+# https://github.com/vivien/i3blocks-contrib/pull/449
+command=brightness/bin/brightness -a /sys/class/backlight/intel_backlight/actual_brightness -m /sys/class/backlight/intel_backlight/max_brightness
+label=🔆 
+interval=persist
+
+#[battery]
+#label=BAT
+#label=⚡
+#interval=30
+
+[battery2]
+# https://github.com/vivien/i3blocks-contrib/tree/master/battery2
+markup=pango
+interval=30
+
+# Date Time
+[time]
+# command=date '+%Y-%m-%d %H:%M:%S'
+command=date '+%a %d %b %Y %H:%M'
+interval=5
+
+# OpenVPN support
+#
+# Support multiple VPN, with colors.
+#[openvpn]
+# https://github.com/vivien/i3blocks-contrib/tree/master/openvpn
+#interval=20

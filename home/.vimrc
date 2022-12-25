@@ -119,50 +119,82 @@ if &diff
 endif
 
 " Key map
+" Help
 nnoremap <Space>H <Esc>:help quickref<CR>
 
-imap <C-j> <Esc>
-imap <F1> <C-v><Tab>
+" Basic
+" Another Esc key in the use of the external keyboard.
+inoremap <C-a> <Esc>
+vnoremap <C-a> <Esc>
+" Bash like return key.
+inoremap <C-j> <CR>
+" Another Tab key
+inoremap <C-z> <Tab>
+" Expand to the current absolute path.
 cnoremap %% <C-r>=expand('%:p:h').'/'<CR>
+" Move considering wrapped lines.
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
-nnoremap <Space>w <Esc>:w ~/
+" Open file to edit.
 nnoremap <Space>e <Esc>:e ~/
-nnoremap <Space>f <Esc>:find ~/
+" ctags: step in.
+nnoremap <C-]> g<C-]>
+
+" Windows
+" Horizontal split.
 nnoremap <Space>s <C-w>s
+" Virtical split.
 nnoremap <Space>v <C-w>v
+" Move windows.
 nnoremap <Space>j <C-w>j
 nnoremap <Space>k <C-w>k
 nnoremap <Space>h <C-w>h
 nnoremap <Space>l <C-w>l
+" Rotate window.
 nnoremap <Space>r <C-w>r
+" Resize window.
 nnoremap = <C-w>=
 nnoremap + <C-w>+
 nnoremap - <C-w>-
-nnoremap <C-]> g<C-]>
-nnoremap <Space>n :bn<CR>
-nnoremap <Space>p :bN<CR>
-nnoremap <Space>L :ls<CR>
-nnoremap <Space>N <Esc>:bu 
+
+" Tab
+" Create new tab.
 nnoremap <Space>t :tabnew<CR>
-" nnoremap <C-l> gt<CR>
+" Move to the right tab.
 nnoremap <Space><Tab> gt<CR>
-" nnoremap <C-h> gT<CR>
+nnoremap <Space>m gt<CR>
+" Move to the left tab.
 nnoremap <Space><S-Tab> gT<CR>
-nnoremap <Space>Q :bd<CR>
+nnoremap <Space>n gT<CR>
+" Move the tab position to the right.
+nnoremap <Space>M :tabm +1<CR>
+" Move the tab position to the left.
+nnoremap <Space>N :tabm -1<CR>
+
+" Buffer
+" List buffers.
+nnoremap <Space>L :ls<CR>
+" Move to buffer <N>.
+nnoremap <Space>bu :bu 
+" Move to next buffer.
+nnoremap <Space>bn :bn<CR>
+nnoremap <Space>bp :bN<CR>
+
+" Others
+" Turn on/off the line numbers.
 nnoremap <Space>< :set nonu<CR>
 nnoremap <Space>> :set nu<CR>
 " Spell checking
 nnoremap <Space>i :set spell spelllang=en_us<CR>
 nnoremap <Space>o :set nospell<CR>
-" ANSI escape
+" View ANSI color code.
 " https://stackoverflow.com/a/10592852/11926905
 " https://www.vim.org/scripts/script.php?script_id=302
-nnoremap <Space>p :AnsiEsc<CR>
+nnoremap <Space>c :AnsiEsc<CR>
 " Reload (source) .vimrc
-nnoremap <Space>S :so $MYVIMRC<CR>
+nnoremap <Space>R :so $MYVIMRC<CR>
 nnoremap W <Esc>:w<CR>
 " Disable save & quit
 nnoremap ZZ <Nop>

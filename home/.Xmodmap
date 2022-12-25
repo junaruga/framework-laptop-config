@@ -6,10 +6,3 @@
 !
 ! To list up the symbol, run `xmodmap -pke`.
 ! To load this file, run `xmodmap ~/.Xmodmap`.
-
-! Set PrtSc key as Compose key (Multi_key).
-keycode 107 = Multi_key Mode_switch Sys_Req Mode_switch Sys_Req
-
-! Set CapsLock key as Escape, Shift+CapsLock as Compose key.
-clear Lock
-keycode 66 = Escape Multi_key
