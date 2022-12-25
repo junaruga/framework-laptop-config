@@ -144,7 +144,7 @@ Here are useful examples that you may refer.
   $ vi .config/i3/config
   ```
 
-## Framework Laptop config tips
+## Config tips
 
 I am sharing the configuration tips for Framework Laptop on this repository's [wiki](https://github.com/junaruga/framework-laptop-config/wiki).
 
