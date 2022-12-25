@@ -43,6 +43,7 @@ etc/
 └── X11
     └── xorg.conf.d
         ├── 00-keyboard.conf
+        ├── 01-custom-keyboard.conf
         └── 40-trackpad.conf
 home/
 ├── .bash_profile
@@ -56,12 +57,20 @@ home/
 │   ├── compton.conf
 │   ├── i3
 │   │   └── config
+│   ├── i3blocks
+│   │   ├── brightness
+│   │   │   ├── brightness.png
+│   │   │   ├── LICENSE
+│   │   │   ├── main.c
+│   │   │   ├── Makefile
+│   │   │   └── README.md
+│   │   └── config
 │   ├── i3status
 │   │   └── config
 │   ├── sway
 │   │   └── config
 │   ├── terminator
-│   │   └── config
+│   │   └── config.framework
 │   └── waybar
 │       ├── config
 │       └── style.css
@@ -83,10 +92,11 @@ usr/
             │   ├── evdev.xml
             │   └── evdev.xml.org
             └── symbols
-                ├── capslock
-                └── capslock.org
+                ├── compose
+                ├── compose.org
+                └── custom
 
-18 directories, 25 files
+5 directories, 7 files
 ```
 
 ## Tested versions & memo
