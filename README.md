@@ -25,6 +25,8 @@ Public Domain (CC0)
 
 ## Screenshots
 
+Note the screenshots are not the latest ones.
+
 ### Sway
 
 ![Sway screenshot](image/screenshot_sway.png)
@@ -141,6 +143,10 @@ Here are useful examples that you may refer.
   $ git checkout ad161d9363aadeb9f4ec3c852ca6c96162f2b4b0
   $ vi .config/i3/config
   ```
+
+## Framework Laptop config tips
+
+I am sharing the configuration tips for Framework Laptop on this repository's [wiki](https://github.com/junaruga/framework-laptop-config/wiki).
 
 ## Call to action
 
