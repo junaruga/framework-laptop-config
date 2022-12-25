@@ -6,10 +6,9 @@ The following config files are included:
 
 * Sway (window manager)
   * Using Waybar.
-  * Using i3status optionally.
-  * Using `home/.xkb/` optionally. Sway has a feature to load `~/.xkb`.
+  * Using `home/.xkb/`. Sway has a feature to load `~/.xkb`.
 * i3 (window manager)
-  * Using i3status.
+  * Using i3blocks with [i3blocks-contrib](https://github.com/vivien/i3blocks-contrib) original version and my [forked custom version](https://github.com/junaruga/i3blocks-contrib/tree/mine) until my pull-requests are merged in the original version.
   * Using `etc/X11/xorg.conf.d/*.conf` for the input device settings.
   * Using Compton.
   * Using `.Xmodmap`. Only i3 loads the `.Xmodmap`. Sway doesn't load it.
