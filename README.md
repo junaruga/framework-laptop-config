@@ -86,17 +86,10 @@ usr/
 └── share
     └── X11
         └── xkb
-            ├── rules
-            │   ├── evdev
-            │   ├── evdev.org
-            │   ├── evdev.xml
-            │   └── evdev.xml.org
             └── symbols
-                ├── compose
-                ├── compose.org
                 └── custom
 
-5 directories, 7 files
+4 directories, 1 file
 ```
 
 ## Tested versions & memo
