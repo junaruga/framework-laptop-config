@@ -25,8 +25,6 @@ Public Domain (CC0)
 
 ## Screenshots
 
-Note the screenshots are not the latest ones.
-
 ### Sway
 
 ![Sway screenshot](image/screenshot_sway.png)
