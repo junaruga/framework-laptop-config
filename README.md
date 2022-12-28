@@ -12,7 +12,7 @@ The following config files are included:
   * Using `etc/X11/xorg.conf.d/*.conf` for the input device settings.
   * Using Compton.
   * Using `.Xmodmap`. Only i3 loads the `.Xmodmap`. Sway doesn't load it.
-  * Using `usr/share/X11/xkb/` optionally. But make sure that it's risky to edit files under the /usr.
+  * Setting `/usr/share/X11/xkb/symbols/custom` for custom keyboard layout. See [this page on my blog](https://junaruga.hatenablog.com/entry/2022/08/11/165301) for details.
 * VIM: In the `.vimrc`, the `highlight` settings are related to the terminals.
 * Alacritty (terminal)
 * Terminator (terminal)
