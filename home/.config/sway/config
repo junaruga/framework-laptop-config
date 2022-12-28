@@ -238,7 +238,6 @@ bindsym $mod+p exec $browser https://fedoramagazine.org/using-i3-with-multiple-m
 bindsym Print exec grimshot save area
 bindsym Shift+Print exec grimshot save screen
 bindsym $mod2+Print exec grimshot save active
-bindsym $mod+F11 exec grimshot save area
 # Framework Laptop F12: XF86AudioMedia
 bindsym XF86AudioMedia exec $browser https://community.frame.work/
 bindsym Shift+XF86AudioMedia exec $browser https://en.wikipedia.org/wiki/Framework_Computer
