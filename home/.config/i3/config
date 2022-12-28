@@ -18,7 +18,7 @@ set $up k
 set $right l
 # Terminal emulator
 set $term terminator
-set $term2 alacritty
+set $term2 alacritty --option font.size=7
 # Browser
 set $browser firefox
 # Volume size
@@ -66,6 +66,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# Start browser
+bindsym $mod+Shift+w exec $browser
 
 # Moving around
 # Move your focus around
@@ -257,7 +259,7 @@ bar {
 # Autostart
 # Adjust sclaing to fill the gap from Sway.
 # https://wiki.archlinux.org/title/HiDPI#Xorg
-exec_always --no-startup-id bash -c "xrandr --output eDP-1 --scale '0.70x0.70'"
+exec_always --no-startup-id bash -c "xrandr --output eDP-1 --scale '0.75x0.75'"
 # Set a wallpaper.
 exec --no-startup-id feh --bg-scale ~/doc/wallpaper/default.jpg
 # Make terminals transparent
