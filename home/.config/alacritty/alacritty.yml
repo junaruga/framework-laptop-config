@@ -17,6 +17,7 @@ window:
   padding:
     x: 2
     y: 2
+  opacity: 0.8
 
 scrolling:
   history: 10000
@@ -135,8 +136,6 @@ colors-schemes:
 
 # colors: *colors-iceberg
 colors: *colors-tomorrow-night
-
-window.opacity: 0.90
 
 selection:
   semantic_escape_chars: ",│`|\"' ()[]{}<>\t"

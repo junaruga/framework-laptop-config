@@ -12,14 +12,19 @@ set $down j
 set $up k
 set $right l
 # Terminal emulator
-set $term terminator
-set $term2 alacritty
+# set $term alacritty
+# A workaround to print the input window on fcitx5.
+# https://github.com/alacritty/alacritty/issues/2734
+# https://github.com/alacritty/alacritty/issues/5223
+# https://github.com/ibus/ibus/issues/2182
+set $term WINIT_UNIX_BACKEND=x11 alacritty --option font.size=7 &
+set $term2 terminator
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # Browser
-set $browser firefox
+set $browser firefox-wayland
 # Volume size
 set $volume_size 5
 # Brightness size
@@ -30,15 +35,18 @@ set $resize_size 5
 set $mouse_size 30
 
 font pango:monospace 11
-# Window border and gaps settings.
-# The `default_border pixel` option hides the window title bar.
+
+# Window border
+# Enable the window title bar with a border.
+# default_border normal 4
+# Disable the window title bar with a border.
 default_border pixel 4
-default_border normal
-# hide_edge_borders both
+smart_borders off
+
+# Gaps
 gaps inner 10
 gaps outer 4
-smart_borders on
-# smart_gaps on
+smart_gaps off
 
 # Output configuration
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -192,7 +200,6 @@ mode "resize" {
     bindsym Up resize shrink height $resize_size px
     bindsym Right resize grow width $resize_size px
     # Return to default mode
-    bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym $mod+r mode "default"
 }
@@ -257,7 +264,6 @@ mode "mouse" {
     # Move right
     bindsym $right exec "sudo ydotool mousemove -- $mouse_size 0"
     # Return to default mode
-    bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym $mod+m mode "default"
 }
@@ -273,7 +279,6 @@ mode "media" {
     bindsym a exec $browser https://community.frame.work/
     bindsym Shift+a exec $browser https://en.wikipedia.org/wiki/Framework_Computer
     # Return to default mode
-    bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym $mod+comma mode "default"
 }

@@ -25,7 +25,7 @@ set $browser firefox
 set $volume_size 5
 # Brightness size
 set $brightness_size 2
-# Resize Size
+# Resize size
 set $resize_size 1
 # Mouse size
 set $mouse_size 30
@@ -40,11 +40,12 @@ font pango:monospace 11
 
 # Gaps
 # It will be available on i3 >= 4.22.
-# https://github.com/i3/i3/pull/5241
-# https://www.reddit.com/r/i3wm/comments/yjeoc9/psa_i3gaps_has_been_merged_into_i3/
-# for_window [class="^.*"] border pixel 2
-# gaps inner 15
-# gaps outer 15
+# https://i3wm.org/docs/userguide.html#gaps
+# gaps inner 10
+# gaps outer 0
+# Enable border.
+# https://i3wm.org/docs/userguide.html#for_window
+for_window [class="^.*"] border pixel 4
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -158,7 +159,6 @@ mode "resize" {
     bindsym Up resize shrink height $resize_size px or $resize_size ppt
     bindsym Right resize grow width $resize_size px or $resize_size ppt
     # Return to default mode
-    bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym $mod+r mode "default"
 }
@@ -223,7 +223,6 @@ mode "mouse" {
     bindsym $right exec "sudo ydotool mousemove -- $mouse_size 0"
     bindsym Shift+$right exec "sudo ydotool mousemove -- $mouse_size_long 0"
     # Return to default mode
-    bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym $mod+m mode "default"
 }
@@ -242,7 +241,6 @@ mode "media" {
     bindsym a exec $browser https://community.frame.work/
     bindsym Shift+a exec $browser https://en.wikipedia.org/wiki/Framework_Computer
     # Return to default mode
-    bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym $mod+comma mode "default"
 }
