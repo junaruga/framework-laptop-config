@@ -39,7 +39,7 @@ font pango:monospace 11
 #font pango:DejaVu Sans Mono 8
 
 # Gaps
-# It will be available on i3 >= 4.22.
+# It is available on i3 >= 4.22.
 # https://i3wm.org/docs/userguide.html#gaps
 # gaps inner 10
 # gaps outer 0
