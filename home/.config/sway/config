@@ -17,7 +17,7 @@ set $right l
 # https://github.com/alacritty/alacritty/issues/2734
 # https://github.com/alacritty/alacritty/issues/5223
 # https://github.com/ibus/ibus/issues/2182
-set $term WINIT_UNIX_BACKEND=x11 alacritty --option font.size=7 &
+set $term WINIT_UNIX_BACKEND=x11 alacritty --option font.size=7
 set $term2 terminator
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -292,6 +292,7 @@ mode "media" {
     bindsym e exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size%
     bindsym Shift+e exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_long%
     bindsym $mod2+e exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_short%
+
     bindsym r exec "brightnessctl --device intel_backlight --min-value=1 set $brightness_size%-"
     bindsym t exec "brightnessctl --device intel_backlight set $brightness_size%+"
     bindsym a exec $browser https://community.frame.work/
