@@ -17,12 +17,14 @@ set $down j
 set $up k
 set $right l
 # Terminal emulator
-set $term terminator
-set $term2 alacritty --option font.size=7
+set $term alacritty --option font.size=7
+set $term2 terminator
 # Browser
 set $browser firefox
 # Volume size
+set $volume_size_short 1
 set $volume_size 5
+set $volume_size_long 10
 # Brightness size
 set $brightness_size 2
 # Resize size
@@ -31,8 +33,6 @@ set $resize_size 1
 set $mouse_size 30
 set $mouse_size_long 120
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
 font pango:monospace 11
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -41,7 +41,7 @@ font pango:monospace 11
 # Gaps
 # It is available on i3 >= 4.22.
 # https://i3wm.org/docs/userguide.html#gaps
-# gaps inner 10
+# gaps inner 12
 # gaps outer 0
 # Enable border.
 # https://i3wm.org/docs/userguide.html#for_window
@@ -55,7 +55,7 @@ floating_modifier $mod
 # Start a terminal
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $term2
-# kill focused window
+# Kill focused window
 bindsym $mod+Shift+q kill
 # Start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
@@ -67,8 +67,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-# Start browser
-bindsym $mod+Shift+w exec $browser
 
 # Moving around
 # Move your focus around
@@ -160,7 +158,6 @@ mode "resize" {
     bindsym Right resize grow width $resize_size px or $resize_size ppt
     # Return to default mode
     bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
 
@@ -174,9 +171,18 @@ bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 # Framework Laptop F2: XF86AudioLowerVolume
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size%
 bindsym XF86AudioLowerVolume --release exec pkill -RTMIN+1 i3blocks
+bindsym Shift+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_long%
+bindsym Shift+XF86AudioLowerVolume --release exec pkill -RTMIN+1 i3blocks
+bindsym $mod2+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_short%
+bindsym $mod2+XF86AudioLowerVolume --release exec pkill -RTMIN+1 i3blocks
 # Framework Laptop F3: XF86AudioRaiseVolume
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size%
 bindsym XF86AudioRaiseVolume --release exec pkill -RTMIN+1 i3blocks
+bindsym Shift+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_long%
+bindsym Shift+XF86AudioRaiseVolume --release exec pkill -RTMIN+1 i3blocks
+bindsym $mod2+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_short%
+bindsym $mod2+XF86AudioRaiseVolume --release exec pkill -RTMIN+1 i3blocks
+
 # Use mpc (Music Playing Client) and mpd (Music Playing Daemon) from RPM Fusion.
 # https://fedoramagazine.org/playing-music-on-your-fedora-terminal-with-mpd-and-ncmpcpp/
 # Framework Laptop F4: XF86AudioPrev
@@ -204,12 +210,16 @@ bindsym Print exec gnome-screenshot -i
 bindsym XF86AudioMedia exec $browser https://community.frame.work/
 bindsym Shift+XF86AudioMedia exec $browser https://en.wikipedia.org/wiki/Framework_Computer
 
+# Other bindings
+# Start browser
+bindsym $mod+Shift+w exec $browser
+
 # Mouse emulation
 mode "mouse" {
     # Left click (down then up)
-    bindsym n exec "sudo ydotool click 0xC0"
+    bindsym u exec "sudo ydotool click 0xC0"
     # Right click (down then up)
-    bindsym m exec "sudo ydotool click 0xC1"
+    bindsym i exec "sudo ydotool click 0xC1"
     # Move left
     bindsym $left exec "sudo ydotool mousemove -- -$mouse_size 0"
     bindsym Shift+$left exec "sudo ydotool mousemove -- -$mouse_size_long 0"
@@ -224,27 +234,38 @@ mode "mouse" {
     bindsym Shift+$right exec "sudo ydotool mousemove -- $mouse_size_long 0"
     # Return to default mode
     bindsym Escape mode "default"
-    bindsym $mod+m mode "default"
 }
-bindsym $mod+m mode "mouse"
+bindsym $mod+u mode "mouse"
 
 # Media keys for external keyboard use.
 mode "media" {
     bindsym q exec pactl set-sink-mute @DEFAULT_SINK@ toggle
     bindsym q --release exec pkill -RTMIN+1 i3blocks
+
+    # Lower audio volume.
     bindsym w exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size%
     bindsym w --release exec pkill -RTMIN+1 i3blocks
+    bindsym Shift+w exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_long%
+    bindsym Shift+w --release exec pkill -RTMIN+1 i3blocks
+    bindsym $mod2+w exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_short%
+    bindsym $mod2+w --release exec pkill -RTMIN+1 i3blocks
+
+    # Raise audio volume.
     bindsym e exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size%
     bindsym e --release exec pkill -RTMIN+1 i3blocks
+    bindsym Shift+e exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_long%
+    bindsym Shift+e --release exec pkill -RTMIN+1 i3blocks
+    bindsym $mod2+e exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_short%
+    bindsym $mod2+e --release exec pkill -RTMIN+1 i3blocks
+
     bindsym r exec "brightnessctl --device intel_backlight --min-value=1 set $brightness_size%-"
     bindsym t exec "brightnessctl --device intel_backlight set $brightness_size%+"
     bindsym a exec $browser https://community.frame.work/
     bindsym Shift+a exec $browser https://en.wikipedia.org/wiki/Framework_Computer
     # Return to default mode
     bindsym Escape mode "default"
-    bindsym $mod+comma mode "default"
 }
-bindsym $mod+comma mode "media"
+bindsym $mod+i mode "media"
 
 # Status Bar
 bar {

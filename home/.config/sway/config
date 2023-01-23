@@ -26,13 +26,19 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # Browser
 set $browser firefox-wayland
 # Volume size
+set $volume_size_short 1
 set $volume_size 5
+set $volume_size_long 10
 # Brightness size
 set $brightness_size 2
 # Resize size
 set $resize_size 5
 # Mouse size
 set $mouse_size 30
+set $mouse_size_long 120
+
+# Load system config.
+include /etc/sway/config.d/*
 
 font pango:monospace 11
 
@@ -44,8 +50,8 @@ default_border pixel 4
 smart_borders off
 
 # Gaps
-gaps inner 10
-gaps outer 4
+gaps inner 12
+gaps outer 0
 smart_gaps off
 
 # Output configuration
@@ -106,8 +112,6 @@ floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-# Start browser
-bindsym $mod+Shift+w exec $browser
 
 # Moving around
 # Move your focus around
@@ -201,7 +205,6 @@ mode "resize" {
     bindsym Right resize grow width $resize_size px
     # Return to default mode
     bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
 
@@ -213,12 +216,12 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 # Framework Laptop F2: XF86AudioLowerVolume
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size%
-bindsym Shift+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
-bindsym $mod2+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+bindsym Shift+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_long%
+bindsym $mod2+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_short%
 # Framework Laptop F3: XF86AudioRaiseVolume
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size%
-bindsym Shift+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym $mod2+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+bindsym Shift+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_long%
+bindsym $mod2+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_short%
 # Use mpc (Music Playing Client) and mpd (Music Playing Daemon) from RPM Fusion.
 # https://fedoramagazine.org/playing-music-on-your-fedora-terminal-with-mpd-and-ncmpcpp/
 # Framework Laptop F4: XF86AudioPrev
@@ -249,40 +252,54 @@ bindsym $mod2+Print exec grimshot save active
 bindsym XF86AudioMedia exec $browser https://community.frame.work/
 bindsym Shift+XF86AudioMedia exec $browser https://en.wikipedia.org/wiki/Framework_Computer
 
+# Other bindings
+# Start browser
+bindsym $mod+Shift+w exec $browser
+
 # Mouse emulation
 mode "mouse" {
     # Left click (down then up)
-    bindsym n exec "sudo ydotool click 0xC0"
+    bindsym u exec "sudo ydotool click 0xC0"
     # Right click (down then up)
-    bindsym m exec "sudo ydotool click 0xC1"
+    bindsym i exec "sudo ydotool click 0xC1"
     # Move left
     bindsym $left exec "sudo ydotool mousemove -- -$mouse_size 0"
+    bindsym Shift+$left exec "sudo ydotool mousemove -- -$mouse_size_long 0"
     # Move down
     bindsym $down exec "sudo ydotool mousemove -- 0 $mouse_size"
+    bindsym Shift+$down exec "sudo ydotool mousemove -- 0 $mouse_size_long"
     # Move up
     bindsym $up exec "sudo ydotool mousemove -- 0 -$mouse_size"
+    bindsym Shift+$up exec "sudo ydotool mousemove -- 0 -$mouse_size_long"
     # Move right
     bindsym $right exec "sudo ydotool mousemove -- $mouse_size 0"
+    bindsym Shift+$right exec "sudo ydotool mousemove -- $mouse_size_long 0"
     # Return to default mode
     bindsym Escape mode "default"
-    bindsym $mod+m mode "default"
 }
-bindsym $mod+m mode "mouse"
+bindsym $mod+u mode "mouse"
 
 # Media keys for external keyboard use.
 mode "media" {
     bindsym q exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+    # Lower audio volume.
     bindsym w exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size%
+    bindsym Shift+w exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_long%
+    bindsym $mod2+w exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_short%
+
+    # Raise audio volume.
     bindsym e exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size%
+    bindsym Shift+e exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_long%
+    bindsym $mod2+e exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_short%
     bindsym r exec "brightnessctl --device intel_backlight --min-value=1 set $brightness_size%-"
     bindsym t exec "brightnessctl --device intel_backlight set $brightness_size%+"
     bindsym a exec $browser https://community.frame.work/
     bindsym Shift+a exec $browser https://en.wikipedia.org/wiki/Framework_Computer
     # Return to default mode
     bindsym Escape mode "default"
-    bindsym $mod+comma mode "default"
 }
-bindsym $mod+comma mode "media"
+bindsym $mod+i mode "media"
 
 # Status Bar
 # Read `man 5 sway-bar` for more information about this section.
@@ -315,8 +332,6 @@ exec swayidle -w \
     before-sleep $lock
 # Manual lock
 bindsym $mod+Shift+p exec $lock
-
-include /etc/sway/config.d/*
 
 # Theme colors
 #       class           border  background text    indicator child_border
