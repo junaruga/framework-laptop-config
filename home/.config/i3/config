@@ -182,7 +182,6 @@ bindsym Shift+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +$v
 bindsym Shift+XF86AudioRaiseVolume --release exec pkill -RTMIN+1 i3blocks
 bindsym $mod2+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_short%
 bindsym $mod2+XF86AudioRaiseVolume --release exec pkill -RTMIN+1 i3blocks
-
 # Use mpc (Music Playing Client) and mpd (Music Playing Daemon) from RPM Fusion.
 # https://fedoramagazine.org/playing-music-on-your-fedora-terminal-with-mpd-and-ncmpcpp/
 # Framework Laptop F4: XF86AudioPrev
