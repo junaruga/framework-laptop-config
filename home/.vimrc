@@ -137,6 +137,13 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+" Scroll
+" https://stackoverflow.com/questions/3458689
+" Moves cursor & screen down 1/2 page.
+nnoremap <Space>u <C-d>
+" Moves cursor & screen up 1/2 page
+nnoremap <Space>i <C-u>
+
 " Open file to edit.
 nnoremap <Space>e <Esc>:e ~/
 " ctags: step in.
@@ -162,20 +169,20 @@ nnoremap - <C-w>-
 " Tab
 " Create new tab.
 nnoremap <Space>t :tabnew<CR>
-" Move to the right tab.
-nnoremap <Space><Tab> gt<CR>
-nnoremap <Space>m gt<CR>
 " Move to the left tab.
 nnoremap <Space><S-Tab> gT<CR>
 nnoremap <Space>n gT<CR>
-" Move the tab position to the right.
-nnoremap <Space>M :tabm +1<CR>
+" Move to the right tab.
+nnoremap <Space><Tab> gt<CR>
+nnoremap <Space>m gt<CR>
 " Move the tab position to the left.
 nnoremap <Space>N :tabm -1<CR>
+" Move the tab position to the right.
+nnoremap <Space>M :tabm +1<CR>
 
 " Buffer
 " List buffers.
-nnoremap <Space>L :ls<CR>
+nnoremap <Space>bl :ls<CR>
 " Move to buffer <N>.
 nnoremap <Space>bu :bu 
 " Move to next buffer.
@@ -187,14 +194,15 @@ nnoremap <Space>bp :bN<CR>
 nnoremap <Space>< :set nonu<CR>
 nnoremap <Space>> :set nu<CR>
 " Spell checking
-nnoremap <Space>i :set spell spelllang=en_us<CR>
-nnoremap <Space>o :set nospell<CR>
+nnoremap <Space>o :set spell spelllang=en_us<CR>
+nnoremap <Space>O :set nospell<CR>
+nnoremap <Space>p :set nospell<CR>
 " View ANSI color code.
 " https://stackoverflow.com/a/10592852/11926905
 " https://www.vim.org/scripts/script.php?script_id=302
 nnoremap <Space>c :AnsiEsc<CR>
 " Reload (source) .vimrc
-nnoremap <Space>R :so $MYVIMRC<CR>
+nnoremap <Space>C :so $MYVIMRC<CR>
 nnoremap W <Esc>:w<CR>
 " Disable save & quit
 nnoremap ZZ <Nop>
