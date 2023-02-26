@@ -38,6 +38,21 @@ export IGNOREEOF
 #export LC_ALL=C
 export LC_ALL=en_US.UTF-8
 
+# Wayland
+# https://wiki.archlinux.org/title/Wayland
+# https://ask.fedoraproject.org/t/tips-of-xwayland-with-sway/30314
+if [ "${XDG_SESSION_TYPE}" = wayland ]; then
+    export MOZ_ENABLE_WAYLAND=1
+    # For Gimp
+    export GDK_BACKEND=x11
+    # For Java application
+    export _JAVA_AWT_WM_NONREPARENTING=1
+else
+    unset MOZ_ENABLE_WAYLAND
+    unset GDK_BACKEND
+    unset _JAVA_AWT_WM_NONREPARENTING
+fi
+
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
     for rc in ~/.bashrc.d/*; do
