@@ -40,6 +40,22 @@ The directory structure is equivalent with the actual directores under the root 
 ```
 $ tree -a etc/ home/ usr/
 etc/
+├── acpi
+│   └── events
+│       ├── ac-power-off
+│       └── ac-power-on
+├── fwupd
+│   ├── uefi_capsule.conf
+│   └── uefi_capsule.conf.org
+├── ld.so.conf.d
+│   └── powercap.conf
+├── systemd
+│   └── system
+│       ├── intel-rapl-balanced.service
+│       └── intel-rapl-powersave.service
+├── tlp.conf
+├── vconsole.conf
+├── vconsole.conf.org
 └── X11
     └── xorg.conf.d
         ├── 00-keyboard.conf
@@ -77,8 +93,7 @@ home/
 ├── .vimrc
 ├── .xkb
 │   ├── rules
-│   │   ├── evdev
-│   │   └── evdev.org
+│   │   └── evdev
 │   └── symbols
 │       └── custom
 └── .Xmodmap
@@ -89,7 +104,7 @@ usr/
             └── symbols
                 └── custom
 
-4 directories, 1 file
+28 directories, 36 files
 ```
 
 ## Tested versions & memo
