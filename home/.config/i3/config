@@ -17,8 +17,8 @@ set $down j
 set $up k
 set $right l
 # Terminal emulator
-set $term alacritty --option font.size=7
-set $term2 terminator
+set $term terminator
+set $term2 alacritty --option font.size=7
 # Browser
 set $browser firefox
 # Volume size
@@ -207,7 +207,6 @@ bindsym $mod+p exec $browser https://fedoramagazine.org/using-i3-with-multiple-m
 bindsym Print exec gnome-screenshot -i
 # Framework Laptop F12: XF86AudioMedia
 bindsym XF86AudioMedia exec $browser https://community.frame.work/
-bindsym Shift+XF86AudioMedia exec $browser https://en.wikipedia.org/wiki/Framework_Computer
 
 # Other bindings
 # Start browser
@@ -260,7 +259,6 @@ mode "media" {
     bindsym r exec "brightnessctl --device intel_backlight --min-value=1 set $brightness_size%-"
     bindsym t exec "brightnessctl --device intel_backlight set $brightness_size%+"
     bindsym a exec $browser https://community.frame.work/
-    bindsym Shift+a exec $browser https://en.wikipedia.org/wiki/Framework_Computer
     # Return to default mode
     bindsym Escape mode "default"
 }

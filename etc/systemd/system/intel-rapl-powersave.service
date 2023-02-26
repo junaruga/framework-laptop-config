@@ -1,0 +1,11 @@
+[Unit]
+Description=Set Intel RAPL power limits (powersave)
+Conflicts=intel-rapl-balanced.service thermald.service
+
+[Service]
+ExecStart=/bin/sh -c "powercap-set intel-rapl -z 0 -c 0 -l 10000000 -s 10000000 && powercap-set intel-rapl -z 0 -c 2 -l 20000000"
+ExecStop=/bin/sh -c "powercap-set intel-rapl -z 0 -c 0 -l 200000000 && powercap-set intel-rapl -z 0 -c 2 -l 121000000"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=sysinit.target

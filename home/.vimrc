@@ -40,7 +40,8 @@ set wildmode=list:longest
 set termencoding=utf-8
 set encoding=japan
 set fileencodings=utf-8,iso-2022-jp,cp932,euc-jp
-set fenc=utf-8
+" Comment out as it shows an error.
+" set fenc=utf-8
 set enc=utf-8
 
 " Status line
@@ -137,12 +138,16 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+" Move the first character of the line.
+nnoremap <Space>^ <Home>
 " Scroll
 " https://stackoverflow.com/questions/3458689
-" Moves cursor & screen down 1/2 page.
-nnoremap <Space>u <C-d>
-" Moves cursor & screen up 1/2 page
-nnoremap <Space>i <C-u>
+" Moves cursor & screen down.
+nnoremap <C-j> 5j
+nnoremap <C-u> 10j
+" Moves cursor & screen up.
+nnoremap <C-k> 5k
+nnoremap <C-i> 10k
 
 " Open file to edit.
 nnoremap <Space>e <Esc>:e ~/
@@ -162,9 +167,9 @@ nnoremap <Space>l <C-w>l
 " Rotate window.
 nnoremap <Space>r <C-w>r
 " Resize window.
-nnoremap = <C-w>=
-nnoremap + <C-w>+
-nnoremap - <C-w>-
+nnoremap <Space>= <C-w>=
+nnoremap <Space>+ <C-w>+
+nnoremap <Space>- <C-w>-
 
 " Tab
 " Create new tab.

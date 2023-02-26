@@ -44,9 +44,9 @@ font pango:monospace 11
 
 # Window border
 # Enable the window title bar with a border.
-# default_border normal 4
+default_border normal 4
 # Disable the window title bar with a border.
-default_border pixel 4
+# default_border pixel 4
 smart_borders off
 
 # Gaps
@@ -250,7 +250,6 @@ bindsym Shift+Print exec grimshot save screen
 bindsym $mod2+Print exec grimshot save active
 # Framework Laptop F12: XF86AudioMedia
 bindsym XF86AudioMedia exec $browser https://community.frame.work/
-bindsym Shift+XF86AudioMedia exec $browser https://en.wikipedia.org/wiki/Framework_Computer
 
 # Other bindings
 # Start browser
@@ -281,22 +280,21 @@ bindsym $mod+u mode "mouse"
 
 # Media keys for external keyboard use.
 mode "media" {
-    bindsym q exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym w exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
     # Lower audio volume.
-    bindsym w exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size%
-    bindsym Shift+w exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_long%
-    bindsym $mod2+w exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_short%
+    bindsym e exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size%
+    bindsym Shift+e exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_long%
+    bindsym $mod2+e exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_short%
 
     # Raise audio volume.
-    bindsym e exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size%
-    bindsym Shift+e exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_long%
-    bindsym $mod2+e exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_short%
+    bindsym r exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size%
+    bindsym Shift+r exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_long%
+    bindsym $mod2+r exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_short%
 
-    bindsym r exec "brightnessctl --device intel_backlight --min-value=1 set $brightness_size%-"
-    bindsym t exec "brightnessctl --device intel_backlight set $brightness_size%+"
-    bindsym a exec $browser https://community.frame.work/
-    bindsym Shift+a exec $browser https://en.wikipedia.org/wiki/Framework_Computer
+    bindsym u exec "brightnessctl --device intel_backlight --min-value=1 set $brightness_size%-"
+    bindsym i exec "brightnessctl --device intel_backlight set $brightness_size%+"
+    bindsym o exec $browser https://community.frame.work/
     # Return to default mode
     bindsym Escape mode "default"
 }

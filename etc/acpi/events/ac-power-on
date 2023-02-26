@@ -1,0 +1,2 @@
+event=ac_adapter ACPI0003:00 00000080 00000001
+action=systemctl start intel-rapl-balanced
