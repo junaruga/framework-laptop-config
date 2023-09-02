@@ -101,7 +101,7 @@ bindsym $mod+Shift+Return exec $term2
 # Kill focused window
 bindsym $mod+Shift+q kill
 # Start your launcher
-bindsym $mod+d exec $menu
+bindsym $mod+m exec $menu
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 # Despite the name, also works for non-floating windows.
@@ -111,7 +111,7 @@ floating_modifier $mod normal
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you want to exit sway?' -b 'Yes, exit sway' 'swaymsg exit'
 
 # Moving around
 # Move your focus around
@@ -161,6 +161,10 @@ bindsym $mod+Shift+0 move container to workspace number 10
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
 
+# Switch workspace
+bindsym $mod+u workspace prev
+bindsym $mod+i workspace next
+
 # Layout stuff
 # You can "split" the current object of your focus with
 # $mod+b or $mod+v, for horizontal and vertical splits
@@ -168,15 +172,15 @@ bindsym $mod+Shift+0 move container to workspace number 10
 bindsym $mod+b splith
 bindsym $mod+v splitv
 # Switch the current container between different layout styles
-bindsym $mod+s layout stacking
+bindsym $mod+g layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 # Make the current focus fullscreen
 bindsym $mod+f fullscreen
 # Toggle the current focus between tiling and floating mode
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+o floating toggle
 # Swap focus between the tiling area and the floating area
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+o focus mode_toggle
 # Move focus to the parent container
 bindsym $mod+a focus parent
 # Focus the child container
@@ -191,22 +195,6 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
-
-# Resizing containers
-mode "resize" {
-    bindsym $left resize shrink width $resize_size px
-    bindsym $down resize grow height $resize_size px
-    bindsym $up resize shrink height $resize_size px
-    bindsym $right resize grow width $resize_size px
-    # Arrow keys
-    bindsym Left resize shrink width $resize_size px
-    bindsym Down resize grow height $resize_size px
-    bindsym Up resize shrink height $resize_size px
-    bindsym Right resize grow width $resize_size px
-    # Return to default mode
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
 
 # Fn/Media keys
 # $ xev -event keyboard
@@ -249,18 +237,156 @@ bindsym Print exec grimshot save area
 bindsym Shift+Print exec grimshot save screen
 bindsym $mod2+Print exec grimshot save active
 # Framework Laptop F12: XF86AudioMedia
-bindsym XF86AudioMedia exec $browser https://community.frame.work/
+bindsym XF86AudioMedia exec $browser https://portal.nebula.org/reporting/library
 
 # Other bindings
 # Start browser
 bindsym $mod+Shift+w exec $browser
 
+# Resizing containers
+mode "resize" {
+    bindsym $left resize shrink width $resize_size px
+    bindsym $down resize grow height $resize_size px
+    bindsym $up resize shrink height $resize_size px
+    bindsym $right resize grow width $resize_size px
+    # Arrow keys
+    bindsym Left resize shrink width $resize_size px
+    bindsym Down resize grow height $resize_size px
+    bindsym Up resize shrink height $resize_size px
+    bindsym Right resize grow width $resize_size px
+    # Return to default mode
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Symbol keys
+# Inspired from my 34 keys layout symbol layer,
+# <https://configure.zsa.io/moonlander/layouts/qYJo5/latest/1>.
+# See </usr/include/linux/input-event-codes.h> for ydotools key code.
+mode "symbol" {
+    # KEY_1 2
+    bindsym q exec "sudo ydotool key 2:1 2:0"
+    bindsym Shift+q exec "sudo ydotool key 42:1 2:1 2:0 42:0"
+    # KEY_2 3
+    bindsym w exec "sudo ydotool key 3:1 3:0"
+    bindsym Shift+w exec "sudo ydotool key 42:1 3:1 3:0 42:0"
+    # KEY_3 4
+    bindsym e exec "sudo ydotool key 4:1 4:0"
+    bindsym Shift+e exec "sudo ydotool key 42:1 4:1 4:0 42:0"
+    # KEY_4 5
+    bindsym r exec "sudo ydotool key 5:1 5:0"
+    bindsym Shift+r exec "sudo ydotool key 42:1 5:1 5:0 42:0"
+    # KEY_5 6
+    bindsym t exec "sudo ydotool key 6:1 6:0"
+    bindsym Shift+t exec "sudo ydotool key 42:1 6:1 6:0 42:0"
+
+    # KEY_6 7
+    bindsym y exec "sudo ydotool key 7:1 7:0"
+    bindsym Shift+y exec "sudo ydotool key 42:1 7:1 7:0 42:0"
+    # KEY_7 8
+    bindsym u exec "sudo ydotool key 8:1 8:0"
+    bindsym Shift+u exec "sudo ydotool key 42:1 8:1 8:0 42:0"
+    # KEY_8 9
+    bindsym i exec "sudo ydotool key 9:1 9:0"
+    bindsym Shift+i exec "sudo ydotool key 42:1 9:1 9:0 42:0"
+    # KEY_9 10
+    bindsym o exec "sudo ydotool key 10:1 10:0"
+    bindsym Shift+o exec "sudo ydotool key 42:1 10:1 10:0 42:0"
+    # KEY_0 11
+    bindsym p exec "sudo ydotool key 11:1 11:0"
+    bindsym Shift+p exec "sudo ydotool key 42:1 11:1 11:0 42:0"
+
+    # KEY_ESC 1
+    bindsym a exec "sudo ydotool key 1:1 1:0"
+    # KEY_LEFTBRACE 26
+    bindsym s exec "sudo ydotool key 26:1 26:0"
+    bindsym Shift+s exec "sudo ydotool key 42:1 26:1 26:0 42:0"
+    # KEY_RIGHTBRACE 27
+    bindsym d exec "sudo ydotool key 27:1 27:0"
+    bindsym Shift+d exec "sudo ydotool key 42:1 27:1 27:0 42:0"
+    # KEY_TAB 15
+    bindsym f exec "sudo ydotool key 15:1 15:0"
+    # KEY_SYSRQ 99
+    bindsym g exec "sudo ydotool key 99:1 99:0"
+
+    # KEY_BACKSPACE 14
+    bindsym h exec "sudo ydotool key 14:1 14:0"
+    # KEY_MINUS 12
+    bindsym j exec "sudo ydotool key 12:1 12:0"
+    bindsym Shift+j exec "sudo ydotool key 42:1 12:1 12:0 42:0"
+    # KEY_EQUAL 13
+    bindsym k exec "sudo ydotool key 13:1 13:0"
+    bindsym Shift+k exec "sudo ydotool key 42:1 13:1 13:0 42:0"
+    # KEY_APOSTROPHE 40 (single quote)
+    bindsym l exec "sudo ydotool key 40:1 40:0"
+    bindsym Shift+l exec "sudo ydotool key 42:1 40:1 40:0 42:0"
+    # KEY_ENTER 28
+    bindsym Semicolon exec "sudo ydotool key 28:1 28:0"
+
+    # KEY_GRAVE 41 (back quote)
+    bindsym z exec "sudo ydotool key 41:1 41:0"
+    bindsym Shift+z exec "sudo ydotool key 42:1 41:1 41:0 42:0"
+    # KEY_DELETE 111
+    bindsym x exec "sudo ydotool key 111:1 111:0"
+    # KEY_INSERT 110
+    bindsym c exec "sudo ydotool key 110:1 110:0"
+    # KEY_COMPOSE 127
+    # bindsym v exec "sudo ydotool key 127:1 127:0"
+
+    # KEY_BACKSLASH 43
+    bindsym Slash exec "sudo ydotool key 43:1 43:0"
+    bindsym Shift+Slash exec "sudo ydotool key 42:1 43:1 43:0 42:0"
+
+    # Return to default mode
+    bindsym $mod+Escape mode "default"
+    bindsym $mod+Semicolon mode "default"
+}
+bindsym $mod+Semicolon mode "symbol"
+
 # Mouse emulation
 mode "mouse" {
     # Left click (down then up)
-    bindsym u exec "sudo ydotool click 0xC0"
+    bindsym Space exec "sudo ydotool click 0xC0"
+
+    # Enable the space key to drag & drop.
+    # However, the `bindsym --release` option is unreliable.
+    # https://github.com/swaywm/sway/issues/7217
+    # Left down (drag and drop start)
+    # bindsym Space exec "sudo ydotool click 0x40"
+    # Left up (drag and drop end)
+    # bindsym --release Space exec "sudo ydotool click 0x80"
+
+    # Left down (drag and drop start)
+    bindsym f exec "sudo ydotool click 0x40"
+    # Left up (drag and drop end)
+    bindsym d exec "sudo ydotool click 0x80"
     # Right click (down then up)
-    bindsym i exec "sudo ydotool click 0xC1"
+    bindsym s exec "sudo ydotool click 0xC1"
+    bindsym a exec "sudo ydotool click 0xC1"
+
+    # Close tab (ctrl+w)
+    # KEY_W 17
+    bindsym q exec "sudo ydotool key 29:1 17:1 17:0 29:0"
+    # Open tab (ctrl+t)
+    # KEY_T 20
+    bindsym w exec "sudo ydotool key 29:1 20:1 20:0 29:0"
+    # Prev tab (ctrl+shift+tab)
+    bindsym e exec "sudo ydotool key 29:1 42:1 15:1 15:0 42:0 29:0"
+    # Next tab (ctrl+tab)
+    # KEY_TAB 15
+    bindsym r exec "sudo ydotool key 29:1 15:1 15:0 29:0"
+
+    # Wheel down
+    # KEY_DOWN 108
+    bindsym u exec "sudo ydotool key 108:1 108:0"
+    # Wheel up
+    # KEY_UP 103
+    bindsym i exec "sudo ydotool key 103:1 103:0"
+    # Go forward (alt+allow right)
+    # KEY_LEFT 106
+    bindsym o exec "sudo ydotool key 56:1 106:1 106:0 56:0"
+
     # Move left
     bindsym $left exec "sudo ydotool mousemove -- -$mouse_size 0"
     bindsym Shift+$left exec "sudo ydotool mousemove -- -$mouse_size_long 0"
@@ -273,32 +399,42 @@ mode "mouse" {
     # Move right
     bindsym $right exec "sudo ydotool mousemove -- $mouse_size 0"
     bindsym Shift+$right exec "sudo ydotool mousemove -- $mouse_size_long 0"
+    # Go back (alt+allow left)
+    # KEY_LEFT 105
+    bindsym Semicolon exec "sudo ydotool key 56:1 105:1 105:0 56:0"
+
     # Return to default mode
     bindsym Escape mode "default"
+    bindsym $mod+d mode "default"
+    bindsym $mod+s mode "media"
 }
-bindsym $mod+u mode "mouse"
+bindsym $mod+d mode "mouse"
 
-# Media keys for external keyboard use.
+# Media keys
 mode "media" {
+    # Media keys for external keyboard use.
     bindsym w exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-
     # Lower audio volume.
     bindsym e exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size%
     bindsym Shift+e exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_long%
     bindsym $mod2+e exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_short%
-
     # Raise audio volume.
     bindsym r exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size%
     bindsym Shift+r exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_long%
     bindsym $mod2+r exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_short%
-
+    # Lower brightness.
     bindsym u exec "brightnessctl --device intel_backlight --min-value=1 set $brightness_size%-"
+    # Raise brightness.
     bindsym i exec "brightnessctl --device intel_backlight set $brightness_size%+"
+    # Open a website.
     bindsym o exec $browser https://community.frame.work/
+
     # Return to default mode
     bindsym Escape mode "default"
+    bindsym $mod+s mode "default"
+    bindsym $mod+d mode "mouse"
 }
-bindsym $mod+i mode "media"
+bindsym $mod+s mode "media"
 
 # Status Bar
 # Read `man 5 sway-bar` for more information about this section.
