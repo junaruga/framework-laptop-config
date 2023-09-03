@@ -36,6 +36,9 @@ set $resize_size 5
 # Mouse size
 set $mouse_size 30
 set $mouse_size_long 120
+# Links
+set $url_focus https://portal.nebula.org/reporting/library
+set $url_manual https://community.frame.work/
 
 # Load system config.
 include /etc/sway/config.d/*
@@ -80,10 +83,7 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     #
     # The caps:escape_shifted_compose is available on xkeyboard-config >= 2.35.
     # https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/commit/8018e2982d1067fc79195e518546fee191b63b6d
-    xkb_options "caps:escape_shifted_compose,custom:compose_shifted_escape"
-    # Set Shift + Esc as Compose key.
-    # https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/merge_requests/418
-    # xkb_options "caps:escape_shifted_compose,compose:shifted_escape"
+    xkb_options "altwin:swap_lalt_lwin,caps:escape_shifted_compose,custom:compose_shifted_escape"
 }
 
 input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
@@ -101,7 +101,7 @@ bindsym $mod+Shift+Return exec $term2
 # Kill focused window
 bindsym $mod+Shift+q kill
 # Start your launcher
-bindsym $mod+m exec $menu
+bindsym $mod+y exec $menu
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 # Despite the name, also works for non-floating windows.
@@ -112,6 +112,18 @@ floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you want to exit sway?' -b 'Yes, exit sway' 'swaymsg exit'
+
+# Make some keys accessible.
+# KEY_BACKSPACE 14
+bindsym $mod+n exec "sudo ydotool key 14:1 14:0"
+# KEY_ENTER 28
+bindsym $mod+m exec "sudo ydotool key 28:1 28:0"
+# KEY_DELETE 111
+bindsym $mod+Comma exec "sudo ydotool key 111:1 111:0"
+# KEY_INSERT 110
+bindsym $mod+Period exec "sudo ydotool key 110:1 110:0"
+# Open a manual page.
+bindsym $mod+Slash exec $browser $url_manual
 
 # Moving around
 # Move your focus around
@@ -240,7 +252,7 @@ bindsym Print exec grimshot save area
 bindsym Shift+Print exec grimshot save screen
 bindsym $mod2+Print exec grimshot save active
 # Framework Laptop F12: XF86AudioMedia
-bindsym XF86AudioMedia exec $browser https://portal.nebula.org/reporting/library
+bindsym XF86AudioMedia exec $browser $url_focus
 
 # Other bindings
 # Start browser
@@ -380,15 +392,34 @@ mode "mouse" {
     # KEY_TAB 15
     bindsym r exec "sudo ydotool key 29:1 15:1 15:0 29:0"
 
-    # Wheel down
     # KEY_DOWN 108
     bindsym u exec "sudo ydotool key 108:1 108:0"
-    # Wheel up
+    # KEY_PAGEDOWN 109
+    bindsym Shift+u exec "sudo ydotool key 109:1 109:0"
     # KEY_UP 103
     bindsym i exec "sudo ydotool key 103:1 103:0"
+    # KEY_PAGEUP 104
+    bindsym Shift+i exec "sudo ydotool key 104:1 104:0"
     # Go forward (alt+allow right)
     # KEY_LEFT 106
     bindsym o exec "sudo ydotool key 56:1 106:1 106:0 56:0"
+
+    # KEY_LEFT 105
+    bindsym n exec "sudo ydotool key 105:1 105:0"
+    # KEY_HOME 102
+    bindsym Shift+n exec "sudo ydotool key 102:1 102:0"
+    # KEY_DOWN 108
+    bindsym m exec "sudo ydotool key 108:1 108:0"
+    # KEY_PAGEDOWN 109
+    bindsym Shift+m exec "sudo ydotool key 109:1 109:0"
+    # KEY_UP 103
+    bindsym Comma exec "sudo ydotool key 103:1 103:0"
+    # KEY_PAGEUP 104
+    bindsym Shift+Comma exec "sudo ydotool key 104:1 104:0"
+    # KEY_RIGHT 106
+    bindsym Period exec "sudo ydotool key 106:1 106:0"
+    # KEY_END 107
+    bindsym Shift+Period exec "sudo ydotool key 107:1 107:0"
 
     # Move left
     bindsym $left exec "sudo ydotool mousemove -- -$mouse_size 0"
@@ -430,7 +461,7 @@ mode "media" {
     # Raise brightness.
     bindsym i exec "brightnessctl --device intel_backlight set $brightness_size%+"
     # Open a website.
-    bindsym o exec $browser https://community.frame.work/
+    bindsym o exec $browser $url_focus
 
     # Return to default mode
     bindsym Escape mode "default"
