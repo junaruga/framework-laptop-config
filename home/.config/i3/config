@@ -19,6 +19,10 @@ set $right l
 # Terminal emulator
 set $term terminator
 set $term2 alacritty --option font.size=7
+# Your preferred application launcher
+# set $menu dmenu_run
+set $menu i3-dmenu-desktop
+
 # Browser
 set $browser firefox
 # Volume size
@@ -28,10 +32,13 @@ set $volume_size_long 10
 # Brightness size
 set $brightness_size 2
 # Resize size
-set $resize_size 1
+set $resize_size 5
 # Mouse size
 set $mouse_size 30
 set $mouse_size_long 120
+# Links
+set $url_focus https://portal.nebula.org/reporting/library
+set $url_manual https://community.frame.work/
 
 font pango:monospace 11
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -41,8 +48,8 @@ font pango:monospace 11
 # Gaps
 # It is available on i3 >= 4.22.
 # https://i3wm.org/docs/userguide.html#gaps
-# gaps inner 12
-# gaps outer 0
+gaps inner 12
+gaps outer 0
 # Enable border.
 # https://i3wm.org/docs/userguide.html#for_window
 for_window [class="^.*"] border pixel 4
@@ -57,16 +64,21 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $term2
 # Kill focused window
 bindsym $mod+Shift+q kill
-# Start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# Start your launcher
+bindsym $mod+y exec $menu
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 # Restart i3 inplace
 # Preserves your layout/session, can be used to upgrade i3
 bindsym $mod+Shift+r restart
 # Exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you want to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Make some keys accessible.
+# Reserve the key as doing nothing as a default.
+bindsym $mod+a mode "default"
+# Open a manual page.
+bindsym $mod+slash exec $browser $url_manual
 
 # Moving around
 # Move your focus around
@@ -131,35 +143,19 @@ bindsym $mod+b split h
 # Split in vertical orientation
 bindsym $mod+v split v
 # Switch the current container between different layout styles
-bindsym $mod+s layout stacking
+bindsym $mod+q layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 # Make the current focus fullscreen
 bindsym $mod+f fullscreen toggle
 # Toggle the current focus between tiling and floating mode
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+o floating toggle
 # Swap focus between the tiling area and the floating area
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+o focus mode_toggle
 # Move focus to the parent container
-bindsym $mod+a focus parent
+bindsym $mod+g focus parent
 # Focus the child container
-bindsym $mod+Shift+a focus child
-
-# Resizing containers
-mode "resize" {
-    bindsym $left resize shrink width $resize_size px or $resize_size ppt
-    bindsym $down resize grow height $resize_size px or $resize_size ppt
-    bindsym $up resize shrink height $resize_size px or $resize_size ppt
-    bindsym $right resize grow width $resize_size px or $resize_size ppt
-    # Arrow keys
-    bindsym Left resize shrink width $resize_size px or $resize_size ppt
-    bindsym Down resize grow height $resize_size px or $resize_size ppt
-    bindsym Up resize shrink height $resize_size px or $resize_size ppt
-    bindsym Right resize grow width $resize_size px or $resize_size ppt
-    # Return to default mode
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
+bindsym $mod+Shift+g focus child
 
 # Fn/Media keys
 # $ xev -event keyboard
@@ -206,18 +202,38 @@ bindsym $mod+p exec $browser https://fedoramagazine.org/using-i3-with-multiple-m
 # https://unix.stackexchange.com/questions/497897/print-screen-key-in-i3
 bindsym Print exec gnome-screenshot -i
 # Framework Laptop F12: XF86AudioMedia
-bindsym XF86AudioMedia exec $browser https://community.frame.work/
+bindsym XF86AudioMedia exec $browser $url_focus
 
 # Other bindings
 # Start browser
 bindsym $mod+Shift+w exec $browser
 
+# Resizing containers
+mode "resize" {
+    bindsym $left resize shrink width $resize_size px
+    bindsym $down resize grow height $resize_size px
+    bindsym $up resize shrink height $resize_size px
+    bindsym $right resize grow width $resize_size px
+    # Arrow keys
+    bindsym Left resize shrink width $resize_size px
+    bindsym Down resize grow height $resize_size px
+    bindsym Up resize shrink height $resize_size px
+    bindsym Right resize grow width $resize_size px
+    # Return to default mode
+    bindsym Escape mode "default"
+    bindsym $mod+a mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
 # Mouse emulation
 mode "mouse" {
     # Left click (down then up)
-    bindsym u exec "sudo ydotool click 0xC0"
+    # bindsym u exec "sudo ydotool click 0xC0"
+    bindsym space exec "sudo ydotool click 0xC0"
     # Right click (down then up)
-    bindsym i exec "sudo ydotool click 0xC1"
+    # bindsym i exec "sudo ydotool click 0xC1"
+    bindsym s exec "sudo ydotool click 0xC1"
+    bindsym a exec "sudo ydotool click 0xC1"
     # Move left
     bindsym $left exec "sudo ydotool mousemove -- -$mouse_size 0"
     bindsym Shift+$left exec "sudo ydotool mousemove -- -$mouse_size_long 0"
@@ -231,38 +247,46 @@ mode "mouse" {
     bindsym $right exec "sudo ydotool mousemove -- $mouse_size 0"
     bindsym Shift+$right exec "sudo ydotool mousemove -- $mouse_size_long 0"
     # Return to default mode
-    bindsym Escape mode "default"
+    bindsym $mod+a mode "default"
+    bindsym $mod+d mode "media"
 }
-bindsym $mod+u mode "mouse"
+bindsym $mod+d mode "mouse"
 
 # Media keys for external keyboard use.
 mode "media" {
-    bindsym q exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-    bindsym q --release exec pkill -RTMIN+1 i3blocks
+    # Mute
+    bindsym w exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym w --release exec pkill -RTMIN+1 i3blocks
 
     # Lower audio volume.
-    bindsym w exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size%
-    bindsym w --release exec pkill -RTMIN+1 i3blocks
-    bindsym Shift+w exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_long%
-    bindsym Shift+w --release exec pkill -RTMIN+1 i3blocks
-    bindsym $mod2+w exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_short%
-    bindsym $mod2+w --release exec pkill -RTMIN+1 i3blocks
-
-    # Raise audio volume.
-    bindsym e exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size%
+    bindsym e exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size%
     bindsym e --release exec pkill -RTMIN+1 i3blocks
-    bindsym Shift+e exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_long%
+    bindsym Shift+e exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_long%
     bindsym Shift+e --release exec pkill -RTMIN+1 i3blocks
-    bindsym $mod2+e exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_short%
+    bindsym $mod2+e exec pactl set-sink-volume @DEFAULT_SINK@ -$volume_size_short%
     bindsym $mod2+e --release exec pkill -RTMIN+1 i3blocks
 
-    bindsym r exec "brightnessctl --device intel_backlight --min-value=1 set $brightness_size%-"
-    bindsym t exec "brightnessctl --device intel_backlight set $brightness_size%+"
-    bindsym a exec $browser https://community.frame.work/
+    # Raise audio volume.
+    bindsym r exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size%
+    bindsym r --release exec pkill -RTMIN+1 i3blocks
+    bindsym Shift+r exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_long%
+    bindsym Shift+r --release exec pkill -RTMIN+1 i3blocks
+    bindsym $mod2+r exec pactl set-sink-volume @DEFAULT_SINK@ +$volume_size_short%
+    bindsym $mod2+r --release exec pkill -RTMIN+1 i3blocks
+
+    # Lower brightness.
+    bindsym u exec "brightnessctl --device intel_backlight --min-value=1 set $brightness_size%-"
+
+    # Raise brightness.
+    bindsym i exec "brightnessctl --device intel_backlight set $brightness_size%+"
+
+    # Open a website.
+    bindsym o exec $browser $url_focus
+
     # Return to default mode
-    bindsym Escape mode "default"
+    bindsym $mod+a mode "default"
+    bindsym $mod+d mode "mouse"
 }
-bindsym $mod+i mode "media"
 
 # Status Bar
 bar {
