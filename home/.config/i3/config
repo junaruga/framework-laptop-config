@@ -46,13 +46,15 @@ font pango:monospace 11
 #font pango:DejaVu Sans Mono 8
 
 # Gaps
-# It is available on i3 >= 4.22.
+# Gaps are available since i3 v4.22.
 # https://i3wm.org/docs/userguide.html#gaps
 gaps inner 12
 gaps outer 0
-# Enable border.
+# Enable border. Disable the window title bar as a default.
+# https://i3wm.org/docs/userguide.html#default_border
+# default_border pixel 4
 # https://i3wm.org/docs/userguide.html#for_window
-for_window [class="^.*"] border pixel 4
+for_window [class="firefox"] border pixel 4
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -228,12 +230,13 @@ bindsym $mod+r mode "resize"
 # Mouse emulation
 mode "mouse" {
     # Left click (down then up)
-    # bindsym u exec "sudo ydotool click 0xC0"
     bindsym space exec "sudo ydotool click 0xC0"
+    # bindsym space exec "xdotool click 1"
     # Right click (down then up)
-    # bindsym i exec "sudo ydotool click 0xC1"
     bindsym s exec "sudo ydotool click 0xC1"
+    # bindsym s exec "xdotool click 3"
     bindsym a exec "sudo ydotool click 0xC1"
+    # bindsym a exec "xdotool click 3"
     # Move left
     bindsym $left exec "sudo ydotool mousemove -- -$mouse_size 0"
     bindsym Shift+$left exec "sudo ydotool mousemove -- -$mouse_size_long 0"
@@ -288,18 +291,7 @@ mode "media" {
     bindsym $mod+d mode "mouse"
 }
 
-# Status Bar
-bar {
-    position top
-    # The default config: /etc/i3status.conf.
-    # status_command i3status
-    status_command i3blocks
-}
-
 # Autostart
-# Adjust sclaing to fill the gap from Sway.
-# https://wiki.archlinux.org/title/HiDPI#Xorg
-exec_always --no-startup-id bash -c "xrandr --output eDP-1 --scale '0.75x0.75'"
 # Set a wallpaper.
 exec --no-startup-id feh --bg-scale ~/doc/wallpaper/default.jpg
 # Make terminals transparent
@@ -330,3 +322,8 @@ bindsym $mod+Shift+p exec --no-startup-id loginctl lock-session
 
 # Set color temperature of display
 exec --no-startup-id redshift
+
+# Load user config.
+# Include directive is available since i3 v4.20.
+# https://i3wm.org/docs/userguide.html#include
+include ~/.config/i3/config.d/*

@@ -1,0 +1,3 @@
+# The 1.5x scaling is recommended.
+# https://community.frame.work/t/using-elementary-os-on-the-framework-laptop/4453
+output eDP-1 scale 1.2

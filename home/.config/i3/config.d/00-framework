@@ -1,0 +1,14 @@
+# vi: ft=i3config
+
+# Status Bar
+bar {
+    position top
+    status_command i3blocks
+    # The default config: /etc/i3status.conf.
+    # status_command i3status
+}
+
+# Autostart
+# Adjust sclaing to fill the gap from Sway.
+# https://wiki.archlinux.org/title/HiDPI#Xorg
+exec_always --no-startup-id bash -c "xrandr --output eDP-1 --scale '0.75x0.75'"
