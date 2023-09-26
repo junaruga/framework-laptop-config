@@ -11,6 +11,8 @@ set $mod Mod4
 # on it. So, the i3's Alt is not harmful.
 # https://support.mozilla.org/en-US/questions/1084123
 set $mod2 Mod1
+# Border size
+set $border_size 4
 # Direction keys like vim.
 set $left h
 set $down j
@@ -41,20 +43,21 @@ set $url_focus https://portal.nebula.org/reporting/library
 set $url_manual https://community.frame.work/
 
 font pango:monospace 11
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+
+# Window border
+# Enable the window title bar with a border.
+default_border normal $border_size
+# Disable the window title bar with a border.
+# https://i3wm.org/docs/userguide.html#default_border
+# default_border pixel $border_size
+# https://i3wm.org/docs/userguide.html#for_window
+for_window [class="firefox"] border pixel $border_size
 
 # Gaps
 # Gaps are available since i3 v4.22.
 # https://i3wm.org/docs/userguide.html#gaps
 gaps inner 12
 gaps outer 0
-# Enable border. Disable the window title bar as a default.
-# https://i3wm.org/docs/userguide.html#default_border
-# default_border pixel 4
-# https://i3wm.org/docs/userguide.html#for_window
-for_window [class="firefox"] border pixel 4
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -104,40 +107,35 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+# Workspaces
 # Switch to workspace
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
+
+# Switch workspace
+bindsym $mod+u workspace prev
+bindsym $mod+i workspace next
 
 # Layout stuff
 # Split in horizontal orientation
@@ -158,6 +156,9 @@ bindsym $mod+Shift+o focus mode_toggle
 bindsym $mod+g focus parent
 # Focus the child container
 bindsym $mod+Shift+g focus child
+# Disable or enable the window title bar.
+bindsym $mod+t border pixel $border_size
+bindsym $mod+Shift+t border normal $border_size
 
 # Fn/Media keys
 # $ xev -event keyboard

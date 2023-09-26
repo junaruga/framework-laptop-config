@@ -1,3 +1,13 @@
 # The 1.5x scaling is recommended.
 # https://community.frame.work/t/using-elementary-os-on-the-framework-laptop/4453
 output eDP-1 scale 1.2
+
+# As Framework Laptop's touchpad click doesn't work, enabling tap-to-click
+# is better.
+input type:touchpad {
+    # tap: tap-to-click
+    tap enabled
+    # drag: tap-to-drag
+    # https://wayland.freedesktop.org/libinput/doc/latest/tapping.html#tap-and-drag
+    drag enabled
+}

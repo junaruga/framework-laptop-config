@@ -11,6 +11,8 @@ set $mod Mod4
 # on it. So, the i3's Alt is not harmful.
 # https://support.mozilla.org/en-US/questions/1084123
 set $mod2 Mod1
+# Border size
+set $border_size 5
 # Direction keys like vim.
 set $left h
 set $down j
@@ -52,10 +54,12 @@ font pango:monospace 11
 
 # Window border
 # Enable the window title bar with a border.
-default_border normal 4
+default_border normal $border_size
 # Disable the window title bar with a border.
-# default_border pixel 4
+# default_border pixel $border_size
 smart_borders off
+# https://wiki.archlinux.org/title/Sway#Floating_windows
+for_window [app_id="firefox"] border pixel $border_size
 
 # Gaps
 gaps inner 12
@@ -69,10 +73,9 @@ output eDP-1 scale 1.0
 output * bg ~/doc/wallpaper/default.jpg fill
 
 # Input configuration
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-# See the following page for user xkb.
-# https://github.com/swaywm/sway/wiki#keyboard-layout
+# Run `swaymsg -t get_inputs` to get the names of your inputs.
+# See `man 5 sway-input` for details about this section.
+# See <https://github.com/swaywm/sway/wiki#keyboard-layout> for user xkb.
 input type:keyboard {
     xkb_layout us
     # The caps:escape_shifted_compose is available on xkeyboard-config >= 2.35.
@@ -83,7 +86,12 @@ input type:touchpad {
     click_method clickfinger
     natural_scroll enabled
     scroll_method two_finger
+    # tap: tap-to-click
     tap disabled
+    # drag: tap-to-drag
+    drag disabled
+    # dwt: disable-while-typing
+    dwt enabled
 }
 
 # Key bindings
@@ -186,7 +194,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 # Make the current focus maximize
 # https://github.com/swaywm/sway/issues/5397#issuecomment-1052213161
-bindsym $mod+f exec ~/.config/sway/script/sway-maximize.sh
+bindsym $mod+f exec ~/.config/sway/script/sway-maximize.sh -d $border_size
 # Make the current focus fullscreen
 bindsym $mod+Shift+f fullscreen
 # Toggle the current focus between tiling and floating mode
@@ -197,6 +205,9 @@ bindsym $mod+Shift+o focus mode_toggle
 bindsym $mod+g focus parent
 # Focus the child container
 bindsym $mod+Shift+g focus child
+# Disable or enable the window title bar.
+bindsym $mod+t border pixel $border_size
+bindsym $mod+Shift+t border normal $border_size
 
 # Scratchpad
 # Sway has a "scratchpad", which is a bag of holding for windows.
