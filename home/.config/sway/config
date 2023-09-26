@@ -27,9 +27,10 @@ set $right l
 set $term WINIT_UNIX_BACKEND=x11 alacritty --option font.size=7
 set $term2 terminator
 # Your preferred application launcher
+set $menu ~/.config/sway/script/bemenu.sh
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+# set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # Browser
 set $browser firefox-wayland
 # Volume size
