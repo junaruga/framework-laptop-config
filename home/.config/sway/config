@@ -94,12 +94,15 @@ input type:touchpad {
     # dwt: disable-while-typing
     dwt enabled
 }
+seat * hide_cursor when-typing enable
 
 # Key bindings
+# Run `wev` to discover XKB key names used in bindsym.
 # Basics
 # Start a terminal
-bindsym $mod+Return exec $term
-bindsym $mod+Shift+Return exec $term2
+bindsym $mod+Shift+Semicolon exec $term
+bindsym $mod+u exec $term
+bindsym $mod+i exec $term2
 # Kill focused window
 bindsym $mod+Shift+q kill
 # Start your launcher
@@ -120,7 +123,6 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you want to exit sway?' -b '
 bindsym $mod+a mode "default"
 # KEY_ESC 1
 bindsym $mod+Shift+a exec "sudo ydotool key 1:1 1:0"
-bindsym $mod+s exec "sudo ydotool key 1:1 1:0"
 # KEY_BACKSPACE 14
 bindsym $mod+n exec "sudo ydotool key 14:1 14:0"
 # KEY_ENTER 28
@@ -129,8 +131,8 @@ bindsym $mod+m exec "sudo ydotool key 28:1 28:0"
 bindsym $mod+Comma exec "sudo ydotool key 111:1 111:0"
 # KEY_INSERT 110
 bindsym $mod+Period exec "sudo ydotool key 110:1 110:0"
-# Open a manual page.
-bindsym $mod+Slash exec $browser $url_manual
+# KEY_ENTER 28
+bindsym $mod+Slash exec "sudo ydotool key 28:1 28:0"
 
 # Moving around
 # Move your focus around
@@ -181,12 +183,12 @@ bindsym $mod+Shift+0 move container to workspace number 10
 # We just use 1-10 as the default.
 
 # Switch workspace
-bindsym $mod+u workspace prev
-bindsym $mod+i workspace next
+bindsym $mod+Shift+u workspace prev
+bindsym $mod+Shift+i workspace next
 
 # Layout stuff
 # Split in horizontal orientation
-bindsym $mod+b splith
+bindsym $mod+Shift+v splith
 # Split in vertical orientation
 bindsym $mod+v splitv
 # Switch the current container between different layout styles
@@ -203,9 +205,11 @@ bindsym $mod+o floating toggle
 # Swap focus between the tiling area and the floating area
 bindsym $mod+Shift+o focus mode_toggle
 # Move focus to the parent container
-bindsym $mod+g focus parent
+bindsym $mod+s focus parent
 # Focus the child container
-bindsym $mod+Shift+g focus child
+bindsym $mod+Shift+s focus child
+# Hide and toggle the bar.
+bindsym $mod+g bar mode toggle
 # Disable or enable the window title bar.
 bindsym $mod+t border pixel $border_size
 bindsym $mod+Shift+t border normal $border_size
@@ -262,6 +266,7 @@ bindsym Shift+Print exec grimshot save screen
 bindsym $mod2+Print exec grimshot save active
 # Framework Laptop F12: XF86AudioMedia
 bindsym XF86AudioMedia exec $browser $url_focus
+bindsym Shift+XF86AudioMedia exec $browser $url_manual
 
 # Other bindings
 # Start browser
@@ -365,9 +370,10 @@ mode "symbol" {
 
     # Return to default mode
     bindsym $mod+a mode "default"
-    bindsym $mod+Semicolon mode "default"
+    bindsym $mod+Shift+Space mode "default"
 }
 bindsym $mod+Semicolon mode "symbol"
+bindsym $mod+Shift+Space mode "symbol"
 
 # Mouse emulation
 mode "mouse" {
@@ -410,9 +416,10 @@ mode "mouse" {
     bindsym i exec "sudo ydotool key 103:1 103:0"
     # KEY_PAGEUP 104
     bindsym Shift+i exec "sudo ydotool key 104:1 104:0"
-    # Go forward (alt+allow right)
+    # Go forward (alt+arrow right)
+    # KEY_RIGHTALT 100 - Don't use LEFTALT as it is swapped with super key.
     # KEY_LEFT 106
-    bindsym o exec "sudo ydotool key 56:1 106:1 106:0 56:0"
+    bindsym o exec "sudo ydotool key 100:1 106:1 106:0 100:0"
 
     # KEY_LEFT 105
     bindsym n exec "sudo ydotool key 105:1 105:0"
@@ -443,9 +450,10 @@ mode "mouse" {
     # Move right
     bindsym $right exec "sudo ydotool mousemove -- $mouse_size 0"
     bindsym Shift+$right exec "sudo ydotool mousemove -- $mouse_size_long 0"
-    # Go back (alt+allow left)
+    # Go back (alt+arrow left)
+    # KEY_RIGHTALT 100 - Don't use LEFTALT as it is swapped with super key.
     # KEY_LEFT 105
-    bindsym Semicolon exec "sudo ydotool key 56:1 105:1 105:0 56:0"
+    bindsym Semicolon exec "sudo ydotool key 100:1 105:1 105:0 100:0"
 
     # Return to default mode
     bindsym $mod+a mode "default"
@@ -476,6 +484,7 @@ mode "media" {
 
     # Open a website.
     bindsym o exec $browser $url_focus
+    bindsym Shift+o exec $browser $url_manual
 
     # Return to default mode
     bindsym $mod+a mode "default"
@@ -486,6 +495,7 @@ mode "media" {
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
+    modifier none
 
     # Waybar.
     # https://github.com/Alexays/Waybar
