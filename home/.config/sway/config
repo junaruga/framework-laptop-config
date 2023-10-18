@@ -98,9 +98,14 @@ seat * hide_cursor when-typing enable
 
 # Key bindings
 # Run `wev` to discover XKB key names used in bindsym.
+# Use the symbol names as case-sensitive defined in the
+# /usr/include/X11/keysymdef.h - XK_something
+# for the compatibility of the i3 and i3keys for now.
+# https://github.com/RasmusLindroth/i3keys/issues/39
+#
 # Basics
 # Start a terminal
-bindsym $mod+Shift+Semicolon exec $term
+bindsym $mod+Shift+semicolon exec $term
 bindsym $mod+u exec $term
 bindsym $mod+i exec $term2
 # Kill focused window
@@ -128,11 +133,11 @@ bindsym $mod+n exec "sudo ydotool key 14:1 14:0"
 # KEY_ENTER 28
 bindsym $mod+m exec "sudo ydotool key 28:1 28:0"
 # KEY_DELETE 111
-bindsym $mod+Comma exec "sudo ydotool key 111:1 111:0"
+bindsym $mod+comma exec "sudo ydotool key 111:1 111:0"
 # KEY_INSERT 110
-bindsym $mod+Period exec "sudo ydotool key 110:1 110:0"
+bindsym $mod+period exec "sudo ydotool key 110:1 110:0"
 # KEY_ENTER 28
-bindsym $mod+Slash exec "sudo ydotool key 28:1 28:0"
+bindsym $mod+slash exec "sudo ydotool key 28:1 28:0"
 
 # Moving around
 # Move your focus around
@@ -140,21 +145,11 @@ bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
-# Or use $mod+[up|down|left|right]
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
 # Move the focused window with the same, but add Shift
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
-# Ditto, with arrow keys
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # Workspaces
 # Switch to workspace
@@ -219,10 +214,10 @@ bindsym $mod+Shift+t border normal $border_size
 # You can send windows there and get them back later.
 #
 # Move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+z move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
+bindsym $mod+z scratchpad show
 
 # Fn/Media keys
 # $ xev -event keyboard
@@ -352,7 +347,7 @@ mode "symbol" {
     bindsym l exec "sudo ydotool key 40:1 40:0"
     bindsym Shift+l exec "sudo ydotool key 42:1 40:1 40:0 42:0"
     # KEY_ENTER 28
-    bindsym Semicolon exec "sudo ydotool key 28:1 28:0"
+    bindsym semicolon exec "sudo ydotool key 28:1 28:0"
 
     # KEY_GRAVE 41 (back quote)
     bindsym z exec "sudo ydotool key 41:1 41:0"
@@ -365,28 +360,28 @@ mode "symbol" {
     # bindsym v exec "sudo ydotool key 127:1 127:0"
 
     # KEY_BACKSLASH 43
-    bindsym Slash exec "sudo ydotool key 43:1 43:0"
-    bindsym Shift+Slash exec "sudo ydotool key 42:1 43:1 43:0 42:0"
+    bindsym slash exec "sudo ydotool key 43:1 43:0"
+    bindsym Shift+slash exec "sudo ydotool key 42:1 43:1 43:0 42:0"
 
     # Return to default mode
     bindsym $mod+a mode "default"
-    bindsym $mod+Shift+Space mode "default"
+    bindsym $mod+Shift+space mode "default"
 }
-bindsym $mod+Semicolon mode "symbol"
-bindsym $mod+Shift+Space mode "symbol"
+bindsym $mod+semicolon mode "symbol"
+bindsym $mod+Shift+space mode "symbol"
 
 # Mouse emulation
 mode "mouse" {
     # Left click (down then up)
-    bindsym Space exec "sudo ydotool click 0xC0"
+    bindsym space exec "sudo ydotool click 0xC0"
 
     # Enable the space key to drag & drop.
     # However, the `bindsym --release` option is unreliable.
     # https://github.com/swaywm/sway/issues/7217
     # Left down (drag and drop start)
-    # bindsym Space exec "sudo ydotool click 0x40"
+    # bindsym space exec "sudo ydotool click 0x40"
     # Left up (drag and drop end)
-    # bindsym --release Space exec "sudo ydotool click 0x80"
+    # bindsym --release space exec "sudo ydotool click 0x80"
 
     # Left down (drag and drop start)
     bindsym f exec "sudo ydotool click 0x40"
@@ -430,13 +425,13 @@ mode "mouse" {
     # KEY_PAGEDOWN 109
     bindsym Shift+m exec "sudo ydotool key 109:1 109:0"
     # KEY_UP 103
-    bindsym Comma exec "sudo ydotool key 103:1 103:0"
+    bindsym comma exec "sudo ydotool key 103:1 103:0"
     # KEY_PAGEUP 104
-    bindsym Shift+Comma exec "sudo ydotool key 104:1 104:0"
+    bindsym Shift+comma exec "sudo ydotool key 104:1 104:0"
     # KEY_RIGHT 106
-    bindsym Period exec "sudo ydotool key 106:1 106:0"
+    bindsym period exec "sudo ydotool key 106:1 106:0"
     # KEY_END 107
-    bindsym Shift+Period exec "sudo ydotool key 107:1 107:0"
+    bindsym Shift+period exec "sudo ydotool key 107:1 107:0"
 
     # Move left
     bindsym $left exec "sudo ydotool mousemove -- -$mouse_size 0"
@@ -453,7 +448,7 @@ mode "mouse" {
     # Go back (alt+arrow left)
     # KEY_RIGHTALT 100 - Don't use LEFTALT as it is swapped with super key.
     # KEY_LEFT 105
-    bindsym Semicolon exec "sudo ydotool key 100:1 105:1 105:0 100:0"
+    bindsym semicolon exec "sudo ydotool key 100:1 105:1 105:0 100:0"
 
     # Return to default mode
     bindsym $mod+a mode "default"
@@ -513,14 +508,14 @@ bar {
 # Autostart
 # Use NetworkManager to manage wireless networks on tray.
 # An alternative is `tmtui`.
-exec --no-startup-id /usr/bin/nm-applet --indicator
+exec /usr/bin/nm-applet --indicator
 # Run Japanese input daemon.
 # https://wiki.archlinux.org/title/Fcitx5
 # The Alacritty has an issue for Japanese input with fcitx5.
 # https://github.com/alacritty/alacritty/issues/1613
 # https://github.com/alacritty/alacritty/issues/2734
 # The Terminator is ok.
-exec --no-startup-id /usr/bin/fcitx5 -d
+exec /usr/bin/fcitx5 -d
 # Idle lock
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when

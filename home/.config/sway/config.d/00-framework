@@ -11,3 +11,7 @@ input type:touchpad {
     # https://wayland.freedesktop.org/libinput/doc/latest/tapping.html#tap-and-drag
     drag enabled
 }
+
+# Run always mouseless when reloading the sway config file.
+# https://github.com/jbensmann/mouseless
+exec_always pkill mouseless; ~/.go/bin/mouseless

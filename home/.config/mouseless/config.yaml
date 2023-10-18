@@ -1,0 +1,102 @@
+# README: https://github.com/jbensmann/mouseless
+#
+# The layout is inspired from my Moonlander 34 keys layout.
+# https://configure.zsa.io/moonlander/layouts/qYJo5/latest/0
+
+# The keyboard devices it reads from, if no devices are specified, it reads
+# from all.
+devices:
+# - "/dev/input/by-id/SOME_KEYBOARD_REPLACE_ME-event-kbd"
+
+# The default speed for mouse movement and scrolling.
+baseMouseSpeed: 800.0
+baseScrollSpeed: 10.0
+# The time it takes to accelerate to baseMouseSpeed (in ms), 0 to reach top
+# speed immediately.
+mouseAccelerationTime: 200.0
+# The shape of the acceleration curve, 1.0 is linear, higher values have more
+# time at low speeds.
+mouseAccelerationCurve: 2.0
+# Speed of the mouse when it starts moving.
+startMouseSpeed: 0.0
+# Same for deceleration.
+mouseDecelerationTime: 200.0
+mouseDecelerationCurve: 3.0
+
+layers:
+- name: base
+  bindings:
+    semicolon: tap-hold semicolon ; layer mouse ; 500
+
+- name: mouse
+  # When true, keys that are not mapped keep their original meaning.
+  passThrough: true
+  bindings:
+    # Always move to the base layer on any layer.
+    leftalt: layer base
+    space: button left
+    rightalt: button right
+
+    # Close Tab
+    q: leftctrl+w
+    # Open Tab
+    w: leftctrl+t
+    # Prev Tab
+    e: leftctrl+leftshift+tab
+    # Next Tab
+    r: leftctrl+tab
+
+    a: speed 2.0
+    s: speed 0.5
+    d: speed 0.3
+    f: speed 0.1
+
+    # Can't use leftalt as it is assigned.
+    # s: rightalt
+    # d: leftctrl
+    # f: leftshift
+
+    z: layer nav
+    # Align with the key to reload sway config.
+    c: reload-config
+
+    u: scroll down
+    i: scroll up
+    # Go Foward
+    o: rightalt+right
+
+    h: move -1  0
+    j: move  0  1
+    k: move  0 -1
+    l: move  1  0
+    # Go Back
+    semicolon: rightalt+left
+
+- name: nav
+  passThrough: true
+  bindings:
+    # Always move to the base layer on any layer.
+    leftalt: layer base
+    space: tab
+    rightalt: space
+
+    a: layer mouse
+    # Can't use leftalt as it is assigned.
+    s: rightalt
+    d: leftctrl
+    f: leftshift
+
+    z: layer mouse
+
+    u: pagedown
+    i: pageup
+    o: backspace
+
+    h: left
+    j: down
+    k: up
+    l: right
+    semicolon: enter
+
+    dot: home
+    slash: end
