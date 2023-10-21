@@ -26,11 +26,23 @@ mouseDecelerationCurve: 3.0
 layers:
 - name: base
   bindings:
-    a: tap-hold-next a ; toggle-layer control ; 500
-    # capslock: tap-hold-next capslock ; toggle-layer control ; 500
-    # space: tap-hold-next space ; toggle-layer control ; 500
-    # capslock: tap-hold-next capslock ; layer mouse ; 500
-    # semicolon: tap-hold semicolon ; layer mouse ; 500
+    a: tap-hold a ; toggle-layer control ; 300
+    # capslock: tap-hold capslock ; toggle-layer control ; 300
+    # space: tap-hold space ; toggle-layer control ; 300
+    # capslock: tap-hold capslock ; layer mouse ; 300
+
+    # Alternative modifier keys.
+    # A setting to type an origial key if another key is not pressed after hold
+    # the key?
+    # https://github.com/jbensmann/mouseless/issues/40
+
+    # d: tap-hold d ; leftctrl ; 300
+    # f: tap-hold f ; leftshift ; 300
+    z: tap-hold z ; leftctrl ; 300
+
+    # j: tap-hold j ; rightshift ; 300
+    # k: tap-hold k ; rightctrl ; 300
+    slash: tap-hold slash ; rightctrl ; 300
 
 - name: control
   passThrough: true
@@ -65,6 +77,12 @@ layers:
     f: speed 0.1
 
     z: layer nav
+    # Cut
+    x: rightctrl+x
+    # Copy
+    c: rightctrl+c
+    # Paste
+    v: rightctrl+v
 
     u: scroll down
     i: scroll up
