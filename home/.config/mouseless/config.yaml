@@ -26,7 +26,18 @@ mouseDecelerationCurve: 3.0
 layers:
 - name: base
   bindings:
-    semicolon: tap-hold semicolon ; layer mouse ; 500
+    capslock: tap-hold-next capslock ; toggle-layer control ; 500
+    # space: tap-hold-next space ; toggle-layer control ; 500
+    # capslock: tap-hold-next capslock ; layer mouse ; 500
+    # semicolon: tap-hold semicolon ; layer mouse ; 500
+
+- name: control
+  passThrough: false
+  bindings:
+    h: backspace
+    j: layer mouse
+    k: layer nav
+    semicolon: enter
 
 - name: mouse
   # When true, keys that are not mapped keep their original meaning.
@@ -51,34 +62,29 @@ layers:
     d: speed 0.3
     f: speed 0.1
 
-    # Can't use leftalt as it is assigned.
-    # s: rightalt
-    # d: leftctrl
-    # f: leftshift
-
     z: layer nav
-    # Align with the key to reload sway config.
-    c: reload-config
 
     u: scroll down
     i: scroll up
+    # Go Back
+    o: rightalt+left
     # Go Foward
-    o: rightalt+right
+    p: rightalt+right
 
     h: move -1  0
     j: move  0  1
     k: move  0 -1
     l: move  1  0
-    # Go Back
-    semicolon: rightalt+left
+    semicolon: layer nav
 
 - name: nav
   passThrough: true
   bindings:
     # Always move to the base layer on any layer.
     leftalt: layer base
-    space: tab
-    rightalt: space
+    rightalt: backspace
+
+    q: reload-config
 
     a: layer mouse
     # Can't use leftalt as it is assigned.
@@ -90,7 +96,8 @@ layers:
 
     u: pagedown
     i: pageup
-    o: backspace
+    o: home
+    p: end
 
     h: left
     j: down
@@ -98,5 +105,5 @@ layers:
     l: right
     semicolon: enter
 
-    dot: home
-    slash: end
+    n: backspace
+    m: enter
