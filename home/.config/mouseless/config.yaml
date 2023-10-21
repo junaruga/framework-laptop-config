@@ -26,13 +26,14 @@ mouseDecelerationCurve: 3.0
 layers:
 - name: base
   bindings:
-    capslock: tap-hold-next capslock ; toggle-layer control ; 500
+    a: tap-hold-next a ; toggle-layer control ; 500
+    # capslock: tap-hold-next capslock ; toggle-layer control ; 500
     # space: tap-hold-next space ; toggle-layer control ; 500
     # capslock: tap-hold-next capslock ; layer mouse ; 500
     # semicolon: tap-hold semicolon ; layer mouse ; 500
 
 - name: control
-  passThrough: false
+  passThrough: true
   bindings:
     h: backspace
     j: layer mouse
