@@ -38,25 +38,26 @@ layers:
     h: backspace
     j: layer mouse
     k: layer nav
+    l: layer symbol
     semicolon: enter
 
 - name: mouse
   # When true, keys that are not mapped keep their original meaning.
   passThrough: true
   bindings:
-    # Always move to the base layer on any layer.
+    # Always return to the base layer on any layer.
     leftalt: layer base
     space: button left
     rightalt: button right
 
     # Close Tab
-    q: leftctrl+w
+    q: rightctrl+w
     # Open Tab
-    w: leftctrl+t
+    w: rightctrl+t
     # Prev Tab
-    e: leftctrl+leftshift+tab
+    e: rightctrl+rightshift+tab
     # Next Tab
-    r: leftctrl+tab
+    r: rightctrl+tab
 
     a: speed 2.0
     s: speed 0.5
@@ -81,7 +82,7 @@ layers:
 - name: nav
   passThrough: true
   bindings:
-    # Always move to the base layer on any layer.
+    # Always return to the base layer on any layer.
     leftalt: layer base
     rightalt: backspace
 
@@ -90,8 +91,8 @@ layers:
     a: layer mouse
     # Can't use leftalt as it is assigned.
     s: rightalt
-    d: leftctrl
-    f: leftshift
+    d: rightctrl
+    f: rightshift
 
     z: layer mouse
 
@@ -108,3 +109,73 @@ layers:
 
     n: backspace
     m: enter
+
+- name: symbol
+  passThrough: true
+  bindings:
+    # Always return to the base layer on any layer.
+    leftalt: layer base
+    leftshift: tap-hold-next leftshift ; toggle-layer symbol-shift ; 500
+    rightshift: tap-hold-next rightshift ; toggle-layer symbol-shift ; 500
+
+    q: k1
+    w: k2
+    e: k3
+    r: k4
+    t: k5
+
+    a: esc
+    s: leftbrace
+    d: rightbrace
+    f: tab
+    g: sysrq
+
+    # backquote
+    z: grave
+    x: delete
+    c: insert
+
+    y: k6
+    u: k7
+    i: k8
+    o: k9
+    p: k0
+
+    h: backspace
+    j: minus
+    k: equal
+    l: apostrophe
+    semicolon: enter
+
+    slash: backslash
+
+- name: symbol-shift
+  passThrough: true
+  bindings:
+    # Always return to the base layer on any layer.
+    leftalt: layer base
+
+    q: rightshift+k1
+    w: rightshift+k2
+    e: rightshift+k3
+    r: rightshift+k4
+    t: rightshift+k5
+
+    s: rightshift+leftbrace
+    d: rightshift+rightbrace
+    f: rightshift+tab
+
+    # backquote
+    z: rightshift+grave
+
+    y: rightshift+k6
+    u: rightshift+k7
+    i: rightshift+k8
+    o: rightshift+k9
+    p: rightshift+k0
+
+    j: rightshift+minus
+    k: rightshift+equal
+    l: rightshift+apostrophe
+
+    slash: rightshift+backslash
