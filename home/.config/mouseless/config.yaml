@@ -23,30 +23,38 @@ startMouseSpeed: 0.0
 mouseDecelerationTime: 200.0
 mouseDecelerationCurve: 3.0
 
+.definitions:
+  # Layer common bindings.
+  - &common
+    z: tap-hold-next-release z ; leftctrl ; 0
+    slash: tap-hold-next-release slash ; rightctrl ; 0
+
 layers:
 - name: base
   bindings:
-    a: tap-hold a ; toggle-layer control ; 300
-    # capslock: tap-hold capslock ; toggle-layer control ; 300
-    # space: tap-hold space ; toggle-layer control ; 300
-    # capslock: tap-hold capslock ; layer mouse ; 300
-
-    # Alternative modifier keys.
-    # A setting to type an origial key if another key is not pressed after hold
-    # the key?
+    # The best way for hodling keys is
+    # `a_key: tap-hold-next-release a_key ; something ; 0`.
     # https://github.com/jbensmann/mouseless/issues/40
 
-    # d: tap-hold d ; leftctrl ; 300
-    # f: tap-hold f ; leftshift ; 300
-    z: tap-hold z ; leftctrl ; 300
+    a: tap-hold-next-release a ; toggle-layer control ; 0
+    # capslock: tap-hold-next-release capslock ; toggle-layer control ; 0
+    # space: tap-hold-next-release space ; toggle-layer control ; 0
+    # capslock: tap-hold-next-release capslock ; layer mouse ; 0
 
-    # j: tap-hold j ; rightshift ; 300
-    # k: tap-hold k ; rightctrl ; 300
-    slash: tap-hold slash ; rightctrl ; 300
+    # d: tap-hold-next-release d ; leftctrl ; 0
+    f: tap-hold-next-release f ; leftshift ; 0
+
+    j: tap-hold-next-release j ; rightshift ; 0
+    # k: tap-hold-next-release k ; rightctrl ; 0
+
+    <<: *common
 
 - name: control
   passThrough: true
   bindings:
+    u: tab
+    i: esc
+
     h: backspace
     j: enter
     k: layer mouse
@@ -75,13 +83,6 @@ layers:
     s: speed 0.5
     d: speed 0.3
     f: speed 0.1
-
-    # Cut
-    x: rightctrl+x
-    # Copy
-    c: rightctrl+c
-    # Paste
-    v: rightctrl+v
 
     u: scroll down
     i: scroll up
@@ -130,8 +131,8 @@ layers:
   bindings:
     # Always return to the base layer on any layer.
     leftalt: layer base
-    leftshift: tap-hold-next leftshift ; toggle-layer symbol-shift ; 500
-    rightshift: tap-hold-next rightshift ; toggle-layer symbol-shift ; 500
+    leftshift: tap-hold-next-release leftshift ; toggle-layer symbol-shift ; 0
+    rightshift: tap-hold-next-release rightshift ; toggle-layer symbol-shift ; 0
 
     q: k1
     w: k2
@@ -164,6 +165,8 @@ layers:
     semicolon: apostrophe
 
     slash: backslash
+
+    <<: *common
 
 - name: symbol-shift
   passThrough: true
