@@ -41,9 +41,6 @@ set $volume_size_long 10
 set $brightness_size 2
 # Resize size
 set $resize_size 5
-# Mouse size
-set $mouse_size 30
-set $mouse_size_long 120
 # Links
 set $url_focus https://portal.nebula.org/reporting/library
 set $url_manual https://community.frame.work/
@@ -136,8 +133,8 @@ bindsym $mod+m exec "sudo ydotool key 28:1 28:0"
 bindsym $mod+comma exec "sudo ydotool key 111:1 111:0"
 # KEY_INSERT 110
 bindsym $mod+period exec "sudo ydotool key 110:1 110:0"
-# KEY_ENTER 28
-bindsym $mod+slash exec "sudo ydotool key 28:1 28:0"
+# KEY_SYSRQ 99
+bindsym $mod+slash exec "sudo ydotool key 99:1 99:0"
 
 # Moving around
 # Move your focus around
@@ -337,17 +334,17 @@ mode "symbol" {
 
     # KEY_BACKSPACE 14
     bindsym h exec "sudo ydotool key 14:1 14:0"
-    # KEY_MINUS 12
-    bindsym j exec "sudo ydotool key 12:1 12:0"
-    bindsym Shift+j exec "sudo ydotool key 42:1 12:1 12:0 42:0"
-    # KEY_EQUAL 13
-    bindsym k exec "sudo ydotool key 13:1 13:0"
-    bindsym Shift+k exec "sudo ydotool key 42:1 13:1 13:0 42:0"
-    # KEY_APOSTROPHE 40 (single quote)
-    bindsym l exec "sudo ydotool key 40:1 40:0"
-    bindsym Shift+l exec "sudo ydotool key 42:1 40:1 40:0 42:0"
     # KEY_ENTER 28
-    bindsym semicolon exec "sudo ydotool key 28:1 28:0"
+    bindsym j exec "sudo ydotool key 28:1 28:0"
+    # KEY_MINUS 12
+    bindsym k exec "sudo ydotool key 12:1 12:0"
+    bindsym Shift+k exec "sudo ydotool key 42:1 12:1 12:0 42:0"
+    # KEY_EQUAL 13
+    bindsym l exec "sudo ydotool key 13:1 13:0"
+    bindsym Shift+l exec "sudo ydotool key 42:1 13:1 13:0 42:0"
+    # KEY_APOSTROPHE 40 (single quote)
+    bindsym semicolon exec "sudo ydotool key 40:1 40:0"
+    bindsym Shift+semicolon exec "sudo ydotool key 42:1 40:1 40:0 42:0"
 
     # KEY_GRAVE 41 (back quote)
     bindsym z exec "sudo ydotool key 41:1 41:0"
@@ -363,98 +360,37 @@ mode "symbol" {
     bindsym slash exec "sudo ydotool key 43:1 43:0"
     bindsym Shift+slash exec "sudo ydotool key 42:1 43:1 43:0 42:0"
 
+    # Workspaces
+    # Switch to workspace
+    bindsym $mod+q workspace number 1
+    bindsym $mod+w workspace number 2
+    bindsym $mod+e workspace number 3
+    bindsym $mod+r workspace number 4
+    bindsym $mod+t workspace number 5
+    bindsym $mod+y workspace number 6
+    bindsym $mod+u workspace number 7
+    bindsym $mod+i workspace number 8
+    bindsym $mod+o workspace number 9
+    bindsym $mod+p workspace number 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+q move container to workspace number 1
+    bindsym $mod+Shift+w move container to workspace number 2
+    bindsym $mod+Shift+e move container to workspace number 3
+    bindsym $mod+Shift+r move container to workspace number 4
+    bindsym $mod+Shift+t move container to workspace number 5
+    bindsym $mod+Shift+y move container to workspace number 6
+    bindsym $mod+Shift+u move container to workspace number 7
+    bindsym $mod+Shift+i move container to workspace number 8
+    bindsym $mod+Shift+o move container to workspace number 9
+    bindsym $mod+Shift+p move container to workspace number 10
+
     # Return to default mode
     bindsym $mod+a mode "default"
     bindsym $mod+Shift+space mode "default"
+    bindsym $mod+semicolon mode "media"
 }
 bindsym $mod+semicolon mode "symbol"
 bindsym $mod+Shift+space mode "symbol"
-
-# Mouse emulation
-mode "mouse" {
-    # Left click (down then up)
-    bindsym space exec "sudo ydotool click 0xC0"
-
-    # Enable the space key to drag & drop.
-    # However, the `bindsym --release` option is unreliable.
-    # https://github.com/swaywm/sway/issues/7217
-    # Left down (drag and drop start)
-    # bindsym space exec "sudo ydotool click 0x40"
-    # Left up (drag and drop end)
-    # bindsym --release space exec "sudo ydotool click 0x80"
-
-    # Left down (drag and drop start)
-    bindsym f exec "sudo ydotool click 0x40"
-    # Left up (drag and drop end)
-    bindsym d exec "sudo ydotool click 0x80"
-    # Right click (down then up)
-    bindsym s exec "sudo ydotool click 0xC1"
-    bindsym a exec "sudo ydotool click 0xC1"
-
-    # Close tab (ctrl+w)
-    # KEY_W 17
-    bindsym q exec "sudo ydotool key 29:1 17:1 17:0 29:0"
-    # Open tab (ctrl+t)
-    # KEY_T 20
-    bindsym w exec "sudo ydotool key 29:1 20:1 20:0 29:0"
-    # Prev tab (ctrl+shift+tab)
-    bindsym e exec "sudo ydotool key 29:1 42:1 15:1 15:0 42:0 29:0"
-    # Next tab (ctrl+tab)
-    # KEY_TAB 15
-    bindsym r exec "sudo ydotool key 29:1 15:1 15:0 29:0"
-
-    # KEY_DOWN 108
-    bindsym u exec "sudo ydotool key 108:1 108:0"
-    # KEY_PAGEDOWN 109
-    bindsym Shift+u exec "sudo ydotool key 109:1 109:0"
-    # KEY_UP 103
-    bindsym i exec "sudo ydotool key 103:1 103:0"
-    # KEY_PAGEUP 104
-    bindsym Shift+i exec "sudo ydotool key 104:1 104:0"
-    # Go forward (alt+arrow right)
-    # KEY_RIGHTALT 100 - Don't use LEFTALT as it is swapped with super key.
-    # KEY_LEFT 106
-    bindsym o exec "sudo ydotool key 100:1 106:1 106:0 100:0"
-
-    # KEY_LEFT 105
-    bindsym n exec "sudo ydotool key 105:1 105:0"
-    # KEY_HOME 102
-    bindsym Shift+n exec "sudo ydotool key 102:1 102:0"
-    # KEY_DOWN 108
-    bindsym m exec "sudo ydotool key 108:1 108:0"
-    # KEY_PAGEDOWN 109
-    bindsym Shift+m exec "sudo ydotool key 109:1 109:0"
-    # KEY_UP 103
-    bindsym comma exec "sudo ydotool key 103:1 103:0"
-    # KEY_PAGEUP 104
-    bindsym Shift+comma exec "sudo ydotool key 104:1 104:0"
-    # KEY_RIGHT 106
-    bindsym period exec "sudo ydotool key 106:1 106:0"
-    # KEY_END 107
-    bindsym Shift+period exec "sudo ydotool key 107:1 107:0"
-
-    # Move left
-    bindsym $left exec "sudo ydotool mousemove -- -$mouse_size 0"
-    bindsym Shift+$left exec "sudo ydotool mousemove -- -$mouse_size_long 0"
-    # Move down
-    bindsym $down exec "sudo ydotool mousemove -- 0 $mouse_size"
-    bindsym Shift+$down exec "sudo ydotool mousemove -- 0 $mouse_size_long"
-    # Move up
-    bindsym $up exec "sudo ydotool mousemove -- 0 -$mouse_size"
-    bindsym Shift+$up exec "sudo ydotool mousemove -- 0 -$mouse_size_long"
-    # Move right
-    bindsym $right exec "sudo ydotool mousemove -- $mouse_size 0"
-    bindsym Shift+$right exec "sudo ydotool mousemove -- $mouse_size_long 0"
-    # Go back (alt+arrow left)
-    # KEY_RIGHTALT 100 - Don't use LEFTALT as it is swapped with super key.
-    # KEY_LEFT 105
-    bindsym semicolon exec "sudo ydotool key 100:1 105:1 105:0 100:0"
-
-    # Return to default mode
-    bindsym $mod+a mode "default"
-    bindsym $mod+d mode "media"
-}
-bindsym $mod+d mode "mouse"
 
 # Media keys for external keyboard use.
 mode "media" {
@@ -483,7 +419,7 @@ mode "media" {
 
     # Return to default mode
     bindsym $mod+a mode "default"
-    bindsym $mod+d mode "mouse"
+    bindsym $mod+semicolon mode "default"
 }
 
 # Status Bar

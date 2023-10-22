@@ -48,10 +48,10 @@ layers:
   passThrough: true
   bindings:
     h: backspace
-    j: layer mouse
-    k: layer nav
-    l: layer symbol
-    semicolon: enter
+    j: enter
+    k: layer mouse
+    l: layer nav
+    semicolon: layer symbol
 
 - name: mouse
   # When true, keys that are not mapped keep their original meaning.
@@ -76,7 +76,6 @@ layers:
     d: speed 0.3
     f: speed 0.1
 
-    z: layer nav
     # Cut
     x: rightctrl+x
     # Copy
@@ -112,8 +111,6 @@ layers:
     d: rightctrl
     f: rightshift
 
-    z: layer mouse
-
     u: pagedown
     i: pageup
     o: home
@@ -123,7 +120,7 @@ layers:
     j: down
     k: up
     l: right
-    semicolon: enter
+    semicolon: layer mouse
 
     n: backspace
     m: enter
@@ -160,10 +157,11 @@ layers:
     p: k0
 
     h: backspace
-    j: minus
-    k: equal
-    l: apostrophe
-    semicolon: enter
+    j: enter
+    k: minus
+    l: equal
+    # single-quote
+    semicolon: apostrophe
 
     slash: backslash
 
@@ -192,8 +190,8 @@ layers:
     o: rightshift+k9
     p: rightshift+k0
 
-    j: rightshift+minus
-    k: rightshift+equal
-    l: rightshift+apostrophe
+    k: rightshift+minus
+    l: rightshift+equal
+    semicolon: rightshift+apostrophe
 
     slash: rightshift+backslash
