@@ -28,6 +28,10 @@ mouseDecelerationCurve: 3.0
   - &common
     z: tap-hold-next-release z ; leftctrl ; 0
     slash: tap-hold-next-release slash ; rightctrl ; 0
+  # Always return to the base layer on any layer.
+  - &return-to-base
+    leftmeta: layer base
+    leftalt: layer base
 
 layers:
 - name: base
@@ -36,15 +40,15 @@ layers:
     # `a_key: tap-hold-next-release a_key ; something ; 0`.
     # https://github.com/jbensmann/mouseless/issues/40
 
-    a: tap-hold-next-release a ; toggle-layer control ; 0
-    # capslock: tap-hold-next-release capslock ; toggle-layer control ; 0
+    # a: tap-hold-next-release a ; toggle-layer control ; 0
+    # leftmeta: tap-hold-next-release leftmeta ; toggle-layer control ; 0
+    capslock: tap-hold-next-release capslock ; toggle-layer control ; 0
     # space: tap-hold-next-release space ; toggle-layer control ; 0
-    # capslock: tap-hold-next-release capslock ; layer mouse ; 0
 
     # d: tap-hold-next-release d ; leftctrl ; 0
-    f: tap-hold-next-release f ; leftshift ; 0
+    # f: tap-hold-next-release f ; leftshift ; 0
 
-    j: tap-hold-next-release j ; rightshift ; 0
+    # j: tap-hold-next-release j ; rightshift ; 0
     # k: tap-hold-next-release k ; rightctrl ; 0
 
     <<: *common
@@ -65,8 +69,7 @@ layers:
   # When true, keys that are not mapped keep their original meaning.
   passThrough: true
   bindings:
-    # Always return to the base layer on any layer.
-    leftalt: layer base
+    <<: *return-to-base
     space: button left
     rightalt: button right
 
@@ -100,8 +103,7 @@ layers:
 - name: nav
   passThrough: true
   bindings:
-    # Always return to the base layer on any layer.
-    leftalt: layer base
+    <<: *return-to-base
     rightalt: backspace
 
     q: reload-config
@@ -129,8 +131,7 @@ layers:
 - name: symbol
   passThrough: true
   bindings:
-    # Always return to the base layer on any layer.
-    leftalt: layer base
+    <<: *return-to-base
     leftshift: tap-hold-next-release leftshift ; toggle-layer symbol-shift ; 0
     rightshift: tap-hold-next-release rightshift ; toggle-layer symbol-shift ; 0
 
@@ -171,8 +172,7 @@ layers:
 - name: symbol-shift
   passThrough: true
   bindings:
-    # Always return to the base layer on any layer.
-    leftalt: layer base
+    <<: *return-to-base
 
     q: rightshift+k1
     w: rightshift+k2
