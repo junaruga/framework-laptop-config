@@ -27,10 +27,12 @@ mouseDecelerationCurve: 3.0
   # Layer common bindings.
   - &common
     z: tap-hold-next-release z ; leftctrl ; 0
+    x: tap-hold-next-release x ; leftshift ; 0
+    dot: tap-hold-next-release dot ; rightshift ; 0
     slash: tap-hold-next-release slash ; rightctrl ; 0
   # Always return to the base layer on any layer.
   - &return-to-base
-    leftmeta: layer base
+    # leftmeta: layer base
     leftalt: layer base
 
 layers:
@@ -42,8 +44,9 @@ layers:
 
     # a: tap-hold-next-release a ; toggle-layer control ; 0
     # leftmeta: tap-hold-next-release leftmeta ; toggle-layer control ; 0
-    capslock: tap-hold-next-release capslock ; toggle-layer control ; 0
-    # space: tap-hold-next-release space ; toggle-layer control ; 0
+    # leftalt: tap-hold-next-release leftalt ; toggle-layer control ; 0
+    space: tap-hold-next-release space ; toggle-layer control ; 0
+    # rightalt: tap-hold-next-release layer symbol ; rightalt ; 300
 
     # d: tap-hold-next-release d ; leftctrl ; 0
     # f: tap-hold-next-release f ; leftshift ; 0
@@ -56,8 +59,11 @@ layers:
 - name: control
   passThrough: true
   bindings:
-    u: tab
-    i: esc
+    a: esc
+    f: tab
+
+    # u: tab
+    # i: esc
 
     h: backspace
     j: enter
@@ -100,6 +106,8 @@ layers:
     l: move  1  0
     semicolon: layer nav
 
+    <<: *common
+
 - name: nav
   passThrough: true
   bindings:
@@ -128,11 +136,14 @@ layers:
     n: backspace
     m: enter
 
+    <<: *common
+
 - name: symbol
   passThrough: true
   bindings:
     <<: *return-to-base
     leftshift: tap-hold-next-release leftshift ; toggle-layer symbol-shift ; 0
+    # rightalt: tap-hold-next-release layer mouse ; rightalt ; 300
     rightshift: tap-hold-next-release rightshift ; toggle-layer symbol-shift ; 0
 
     q: k1

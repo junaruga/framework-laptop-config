@@ -78,6 +78,7 @@ input type:keyboard {
     xkb_layout us
     # The caps:escape_shifted_compose is available on xkeyboard-config >= 2.35.
     # https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/commit/8018e2982d1067fc79195e518546fee191b63b6d
+    # xkb_options "caps:escape_shifted_compose,custom:compose_shifted_escape"
     xkb_options "altwin:swap_lalt_lwin,caps:escape_shifted_compose,custom:compose_shifted_escape"
 }
 input type:touchpad {
@@ -125,16 +126,18 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you want to exit sway?' -b '
 bindsym $mod+a mode "default"
 # KEY_ESC 1
 bindsym $mod+Shift+a exec "sudo ydotool key 1:1 1:0"
+# KEY_SYSRQ 99
+bindsym $mod+b exec "sudo ydotool key 99:1 99:0"
 # KEY_BACKSPACE 14
 bindsym $mod+n exec "sudo ydotool key 14:1 14:0"
 # KEY_ENTER 28
 bindsym $mod+m exec "sudo ydotool key 28:1 28:0"
+# KEY_TAB 15
+bindsym $mod+comma exec "sudo ydotool key 15:1 15:0"
 # KEY_DELETE 111
-bindsym $mod+comma exec "sudo ydotool key 111:1 111:0"
+bindsym $mod+period exec "sudo ydotool key 111:1 111:0"
 # KEY_INSERT 110
-bindsym $mod+period exec "sudo ydotool key 110:1 110:0"
-# KEY_SYSRQ 99
-bindsym $mod+slash exec "sudo ydotool key 99:1 99:0"
+bindsym $mod+slash exec "sudo ydotool key 110:1 110:0"
 
 # Moving around
 # Move your focus around
@@ -189,9 +192,9 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 # Make the current focus maximize
 # https://github.com/swaywm/sway/issues/5397#issuecomment-1052213161
-bindsym $mod+f exec ~/.config/sway/script/sway-maximize.sh -d $border_size
+bindsym $mod+d exec ~/.config/sway/script/sway-maximize.sh -d $border_size
 # Make the current focus fullscreen
-bindsym $mod+Shift+f fullscreen
+bindsym $mod+f fullscreen
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+o floating toggle
 # Swap focus between the tiling area and the floating area

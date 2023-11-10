@@ -1,0 +1,12 @@
+[Unit]
+Description=Mouseless Service
+
+[Service]
+Type=simple
+ExecStart=/home/jaruga/.go/bin/mouseless
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
