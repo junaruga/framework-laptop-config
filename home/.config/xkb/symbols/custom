@@ -1,22 +1,13 @@
 hidden partial modifier_keys
 xkb_symbols "basic" {
     // Left Win (Super) as Compose key.
-    key <LWIN> {
-        type[Group1]="TWO_LEVEL",
-        [ Multi_key, Multi_key ]
-    };
+    key <LWIN> { type[Group1] = "TWO_LEVEL", [ Multi_key, Multi_key ] };
 
     # Left Alt as Left Super key.
-    key <LALT> {
-        type[Group1] = "ONE_LEVEL",
-        [ Super_L ]
-    };
+    key <LALT> { type[Group1] = "ONE_LEVEL", [ Super_L ] };
 
     // Shift + Escape as Compose.
-    key <ESC> {
-        type[Group1]="TWO_LEVEL",
-        [ Escape, Multi_key ]
-    };
+    key <ESC> { type[Group1] = "TWO_LEVEL", [ Escape, Multi_key ] };
 
     // CAPS as Escape, Shift + Escape as Compose.
     key <CAPS> {
