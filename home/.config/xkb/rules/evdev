@@ -1,5 +1,5 @@
 // See https://xkbcommon.org/doc/current/md_doc_user_configuration.html
 ! option = symbols
-  custom:compose_shifted_escape = +custom(compose_shifted_escape)
+  custom:basic = +custom(basic)
 
 ! include %S/evdev

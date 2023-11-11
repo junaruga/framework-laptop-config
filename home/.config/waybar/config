@@ -1,21 +1,18 @@
 // -*- mode: json -*-
 
 {
+    // Hide or toggle waybar.
+    // Note that the miximizing feature doesn't work well on this setting.
+    // https://www.reddit.com/r/swaywm/comments/saucyg/you_can_hidetoggle_waybar/
+    // "bar_id": "bar-0",
+    // "ipc": true,
+    // Layout
     "layer": "top",
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/mode"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "battery", "keyboard-state", "sway/language", "clock", "tray"],
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "battery", "sway/language", "clock", "tray"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },

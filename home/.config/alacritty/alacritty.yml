@@ -161,6 +161,7 @@ key_bindings:
   # Spawn a new instance of Alacritty in the current working directory.
   - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
   - { key: Return, mods: Alt, action: SpawnNewInstance }
+  - { key: Semicolon, mods: Alt, action: SpawnNewInstance }
   # Set the key code for "^" (7), "$" (5) to make it work on ThinkPad X1 Carbon.
   # https://github.com/alacritty/alacritty/issues/4111
   - { key: 7, mods: Shift, mode: Vi|~Search, action: First }
@@ -168,3 +169,11 @@ key_bindings:
   # Copy & paste with alt.
   - { key: C, mods: Alt, action: Copy }
   - { key: V, mods: Alt, action: Paste }
+  # Resize font with alt.
+  - { key: F, mods: Alt, action: IncreaseFontSize }
+  - { key: D, mods: Alt, action: DecreaseFontSize }
+  - { key: S, mods: Alt, action: ResetFontSize }
+  # Vi Mode with alt
+  - { key: Space, mods: Alt, mode: ~Search, action: ToggleViMode }
+  - { key: Space, mods: Alt, mode: Vi|~Search, action: ScrollToBottom }
+

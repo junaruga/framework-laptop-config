@@ -34,6 +34,11 @@ mouseDecelerationCurve: 3.0
   - &return-to-base
     # leftmeta: layer base
     leftalt: layer base
+  # Toggle the layer control.
+  - &toggle-layer-control
+    # leftmeta: tap-hold-next-release leftmeta ; toggle-layer control ; 0
+    # leftalt: tap-hold-next-release leftalt ; toggle-layer control ; 0
+    space: tap-hold-next-release space ; toggle-layer control ; 0
 
 layers:
 - name: base
@@ -43,9 +48,7 @@ layers:
     # https://github.com/jbensmann/mouseless/issues/40
 
     # a: tap-hold-next-release a ; toggle-layer control ; 0
-    # leftmeta: tap-hold-next-release leftmeta ; toggle-layer control ; 0
-    # leftalt: tap-hold-next-release leftalt ; toggle-layer control ; 0
-    space: tap-hold-next-release space ; toggle-layer control ; 0
+    <<: *toggle-layer-control
     # rightalt: tap-hold-next-release layer symbol ; rightalt ; 300
 
     # d: tap-hold-next-release d ; leftctrl ; 0
@@ -60,6 +63,8 @@ layers:
   passThrough: true
   bindings:
     a: esc
+    # keycode 125: Compose key.
+    d: 125
     f: tab
 
     # u: tab
@@ -143,6 +148,7 @@ layers:
   bindings:
     <<: *return-to-base
     leftshift: tap-hold-next-release leftshift ; toggle-layer symbol-shift ; 0
+    <<: *toggle-layer-control
     # rightalt: tap-hold-next-release layer mouse ; rightalt ; 300
     rightshift: tap-hold-next-release rightshift ; toggle-layer symbol-shift ; 0
 

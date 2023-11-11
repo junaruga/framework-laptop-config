@@ -77,17 +77,19 @@ autocmd FileType yaml set tabstop=2|set shiftwidth=2|set expandtab|set softtabst
 " Sh
 autocmd FileType sh set tabstop=4|set shiftwidth=4|set expandtab|set softtabstop=4
 autocmd FileType sh :nnoremap <Space>1 <Esc>:!sh -n % && echo "Syntax OK"<CR>
-autocmd FileType sh :nnoremap <Space>2 <Esc>:!bashate % && echo "Bashate OK"<CR>
+" Ignore the indent check E003 to use the 2 spaces indent.
+autocmd FileType sh :nnoremap <Space>2 <Esc>:!bashate --ignore E003 % && echo "Bashate OK"<CR>
 autocmd FileType sh :nnoremap <Space>3 <Esc>:!shellcheck % && echo "Shellcheck OK"<CR>
 
-" Perl
-autocmd FileType perl set tabstop=4|set shiftwidth=4|set expandtab|set softtabstop=4
-autocmd FileType perl :nnoremap <Space>1 <Esc>:!perl -cw %<CR>
-autocmd FileType perl :nnoremap <Space>2 <Esc>:!perlcritic %<CR>
-autocmd FileType perl :nnoremap <Space>3 <Esc>:!perl %<CR>
+" C
+" Followin the Ruby project's style.
+" https://bugs.ruby-lang.org/projects/ruby/wiki/DeveloperHowto
+autocmd FileType c set tabstop=8 shiftwidth=4 expandtab cinoptions=:2,=2,l1
+autocmd FileType yacc set tabstop=8 shiftwidth=4 expandtab
 
 " Ruby
-autocmd FileType ruby set tabstop=2|set shiftwidth=2|set expandtab|set softtabstop=2
+" https://bugs.ruby-lang.org/projects/ruby/wiki/DeveloperHowto
+autocmd FileType ruby set nowrap tabstop=8 textwidth=0 shiftwidth=2 expandtab
 autocmd FileType ruby :nnoremap <Space>1 <Esc>:!ruby -cW %<CR>
 autocmd FileType ruby :nnoremap <Space>2 <Esc>:!rubocop %<CR>
 autocmd FileType ruby :nnoremap <Space>3 <Esc>:!ruby %<CR>
@@ -98,16 +100,14 @@ autocmd FileType python :nnoremap <Space>1 <Esc>:!python3  -m py_compile % && ec
 autocmd FileType python :nnoremap <Space>2 <Esc>:!flake8 % && echo "Flake8 OK"<CR>
 autocmd FileType python :nnoremap <Space>3 <Esc>:!python3 %<CR>
 
+" Perl
+autocmd FileType perl set tabstop=4|set shiftwidth=4|set expandtab|set softtabstop=4
+autocmd FileType perl :nnoremap <Space>1 <Esc>:!perl -cw %<CR>
+autocmd FileType perl :nnoremap <Space>2 <Esc>:!perlcritic %<CR>
+autocmd FileType perl :nnoremap <Space>3 <Esc>:!perl %<CR>
+
 " Scala
 autocmd FileType scala set tabstop=2|set shiftwidth=2|set expandtab|set softtabstop=2
-
-" C
-" CRuby
-" https://bugs.ruby-lang.org/projects/ruby/wiki/DeveloperHowto
-autocmd FileType c set tabstop=8|set shiftwidth=4|set noexpandtab
-" autocmd FileType yacc set tabstop=8|set shiftwidth=4|set noexpandtab
-" autocmd FileType c set tabstop=4|set shiftwidth=4|set expandtab|set softtabstop=4
-autocmd FileType yacc set tabstop=4|set shiftwidth=4|set expandtab|set softtabstop=4
 
 " vimdiff color customize
 if &diff

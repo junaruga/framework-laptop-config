@@ -76,10 +76,10 @@ output * bg ~/doc/wallpaper/default.jpg fill
 # See <https://github.com/swaywm/sway/wiki#keyboard-layout> for user xkb.
 input type:keyboard {
     xkb_layout us
-    # The caps:escape_shifted_compose is available on xkeyboard-config >= 2.35.
-    # https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/-/commit/8018e2982d1067fc79195e518546fee191b63b6d
-    # xkb_options "caps:escape_shifted_compose,custom:compose_shifted_escape"
-    xkb_options "altwin:swap_lalt_lwin,caps:escape_shifted_compose,custom:compose_shifted_escape"
+    # See the following xkb config files.
+    # ~/.config/xkb/rules/evdev
+    # ~/.config/xkb/symbols/custom
+    xkb_options "custom:basic"
 }
 input type:touchpad {
     click_method clickfinger
@@ -95,12 +95,15 @@ input type:touchpad {
 seat * hide_cursor when-typing enable
 
 # Key bindings
+#
 # Run `wev` to discover XKB key names used in bindsym.
 # Use the symbol names as case-sensitive defined in the
 # /usr/include/X11/keysymdef.h - XK_something
 # for the compatibility of the i3 and i3keys for now.
 # https://github.com/RasmusLindroth/i3keys/issues/39
 #
+# Use `sudo showkey --keycodes` to check a key's keycodes used in `ydotool`.
+
 # Basics
 # Start a terminal
 bindsym $mod+Shift+semicolon exec $term
@@ -124,20 +127,6 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you want to exit sway?' -b '
 # Make some keys accessible.
 # Reserve the key as doing nothing as a default.
 bindsym $mod+a mode "default"
-# KEY_ESC 1
-bindsym $mod+Shift+a exec "sudo ydotool key 1:1 1:0"
-# KEY_SYSRQ 99
-bindsym $mod+b exec "sudo ydotool key 99:1 99:0"
-# KEY_BACKSPACE 14
-bindsym $mod+n exec "sudo ydotool key 14:1 14:0"
-# KEY_ENTER 28
-bindsym $mod+m exec "sudo ydotool key 28:1 28:0"
-# KEY_TAB 15
-bindsym $mod+comma exec "sudo ydotool key 15:1 15:0"
-# KEY_DELETE 111
-bindsym $mod+period exec "sudo ydotool key 111:1 111:0"
-# KEY_INSERT 110
-bindsym $mod+slash exec "sudo ydotool key 110:1 110:0"
 
 # Moving around
 # Move your focus around
@@ -356,8 +345,8 @@ mode "symbol" {
     bindsym x exec "sudo ydotool key 111:1 111:0"
     # KEY_INSERT 110
     bindsym c exec "sudo ydotool key 110:1 110:0"
-    # KEY_COMPOSE 127
-    # bindsym v exec "sudo ydotool key 127:1 127:0"
+    # KEY_COMPOSE 125 (not 127)
+    bindsym v exec "sudo ydotool key 125:1 125:0"
 
     # KEY_BACKSLASH 43
     bindsym slash exec "sudo ydotool key 43:1 43:0"
