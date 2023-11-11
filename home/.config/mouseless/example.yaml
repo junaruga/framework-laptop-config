@@ -1,0 +1,19 @@
+# The keyboard devices it reads from, if no devices are specified, it reads
+# from all.
+devices:
+
+layers:
+- name: base
+  bindings:
+    # The best way for hodling keys is
+    # `a_key: tap-hold-next-release a_key ; something ; 0`.
+    # https://github.com/jbensmann/mouseless/issues/40
+    space: tap-hold-next-release space ; toggle-layer control ; 0
+    z: tap-hold-next-release z ; leftctrl ; 0
+    slash: tap-hold-next-release slash ; rightctrl ; 0
+
+- name: control
+  passThrough: true
+  bindings:
+    h: backspace
+    j: enter
