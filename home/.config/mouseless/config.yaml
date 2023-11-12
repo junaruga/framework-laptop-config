@@ -28,12 +28,17 @@ mouseDecelerationCurve: 3.0
   - &common
     z: tap-hold-next-release z ; leftctrl ; 0
     x: tap-hold-next-release x ; leftshift ; 0
+    # Can't use leftalt as it is assigned.
+    c: tap-hold-next-release c ; rightalt ; 0
+    comma: tap-hold-next-release comma ; rightalt ; 0
     dot: tap-hold-next-release dot ; rightshift ; 0
     slash: tap-hold-next-release slash ; rightctrl ; 0
+
   # Always return to the base layer on any layer.
   - &return-to-base
-    # leftmeta: layer base
-    leftalt: layer base
+    leftmeta: layer base
+    # leftalt: layer base
+    rightalt: layer base
   # Toggle the layer control.
   - &toggle-layer-control
     # leftmeta: tap-hold-next-release leftmeta ; toggle-layer control ; 0
@@ -46,24 +51,17 @@ layers:
     # The best way for hodling keys is
     # `a_key: tap-hold-next-release a_key ; something ; 0`.
     # https://github.com/jbensmann/mouseless/issues/40
-
-    # a: tap-hold-next-release a ; toggle-layer control ; 0
     <<: *toggle-layer-control
-    # rightalt: tap-hold-next-release layer symbol ; rightalt ; 300
-
-    # d: tap-hold-next-release d ; leftctrl ; 0
-    # f: tap-hold-next-release f ; leftshift ; 0
-
-    # j: tap-hold-next-release j ; rightshift ; 0
-    # k: tap-hold-next-release k ; rightctrl ; 0
-
     <<: *common
 
 - name: control
   passThrough: true
   bindings:
     a: esc
-    # keycode 125: Compose key.
+    # Toggle fcitx5 for Japanese input.
+    s: exec fcitx5-remote -t
+    # Set the compose key keycode (125) assigned
+    # in <~/.config/xkb/symbols/custom>.
     d: 125
     f: tab
 
@@ -82,7 +80,7 @@ layers:
   bindings:
     <<: *return-to-base
     space: button left
-    rightalt: button right
+    n: button right
 
     # Close Tab
     q: rightctrl+w
@@ -117,7 +115,7 @@ layers:
   passThrough: true
   bindings:
     <<: *return-to-base
-    rightalt: backspace
+    <<: *toggle-layer-control
 
     q: reload-config
 
@@ -149,7 +147,6 @@ layers:
     <<: *return-to-base
     leftshift: tap-hold-next-release leftshift ; toggle-layer symbol-shift ; 0
     <<: *toggle-layer-control
-    # rightalt: tap-hold-next-release layer mouse ; rightalt ; 300
     rightshift: tap-hold-next-release rightshift ; toggle-layer symbol-shift ; 0
 
     q: k1
