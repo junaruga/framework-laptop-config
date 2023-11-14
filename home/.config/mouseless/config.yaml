@@ -23,13 +23,17 @@ startMouseSpeed: 0.0
 mouseDecelerationTime: 200.0
 mouseDecelerationCurve: 3.0
 
+# The best way for hodling keys is
+# `a_key: tap-hold-next-release a_key ; something ; 0`.
+# https://github.com/jbensmann/mouseless/issues/40
 .definitions:
   # Layer common bindings.
   - &common
     z: tap-hold-next-release z ; leftctrl ; 0
     x: tap-hold-next-release x ; leftshift ; 0
+    # TODO: Comment out as the response for c key is not good.
     # Can't use leftalt as it is assigned.
-    c: tap-hold-next-release c ; rightalt ; 0
+    # c: tap-hold-next-release c ; rightalt ; 0
     comma: tap-hold-next-release comma ; rightalt ; 0
     dot: tap-hold-next-release dot ; rightshift ; 0
     slash: tap-hold-next-release slash ; rightctrl ; 0
@@ -48,11 +52,8 @@ mouseDecelerationCurve: 3.0
 layers:
 - name: base
   bindings:
-    # The best way for hodling keys is
-    # `a_key: tap-hold-next-release a_key ; something ; 0`.
-    # https://github.com/jbensmann/mouseless/issues/40
-    <<: *toggle-layer-control
     <<: *common
+    <<: *toggle-layer-control
 
 - name: control
   passThrough: true
@@ -78,7 +79,9 @@ layers:
   # When true, keys that are not mapped keep their original meaning.
   passThrough: true
   bindings:
+    <<: *common
     <<: *return-to-base
+
     space: button left
     n: button right
 
@@ -109,11 +112,10 @@ layers:
     l: move  1  0
     semicolon: layer nav
 
-    <<: *common
-
 - name: nav
   passThrough: true
   bindings:
+    <<: *common
     <<: *return-to-base
     <<: *toggle-layer-control
 
@@ -139,14 +141,13 @@ layers:
     n: backspace
     m: enter
 
-    <<: *common
-
 - name: symbol
   passThrough: true
   bindings:
+    <<: *common
     <<: *return-to-base
-    leftshift: tap-hold-next-release leftshift ; toggle-layer symbol-shift ; 0
     <<: *toggle-layer-control
+    leftshift: tap-hold-next-release leftshift ; toggle-layer symbol-shift ; 0
     rightshift: tap-hold-next-release rightshift ; toggle-layer symbol-shift ; 0
 
     q: k1
@@ -162,8 +163,10 @@ layers:
     g: sysrq
 
     # backquote
-    z: grave
-    x: delete
+    # z: grave
+    z: tap-hold-next-release grave ; leftctrl ; 0
+    # x: delete
+    x: tap-hold-next-release delete ; leftshift ; 0
     c: insert
 
     y: k6
@@ -179,9 +182,8 @@ layers:
     # single-quote
     semicolon: apostrophe
 
-    slash: backslash
-
-    <<: *common
+    # slash: backslash
+    slash: tap-hold-next-release backslash ; rightctrl ; 0
 
 - name: symbol-shift
   passThrough: true
@@ -209,6 +211,7 @@ layers:
 
     k: rightshift+minus
     l: rightshift+equal
+    # double-quote
     semicolon: rightshift+apostrophe
 
     slash: rightshift+backslash
