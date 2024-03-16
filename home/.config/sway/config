@@ -24,7 +24,7 @@ set $right l
 # https://github.com/alacritty/alacritty/issues/2734
 # https://github.com/alacritty/alacritty/issues/5223
 # https://github.com/ibus/ibus/issues/2182
-set $term WINIT_UNIX_BACKEND=x11 alacritty --option font.size=7
+set $term WINIT_UNIX_BACKEND=x11 alacritty
 set $term2 terminator
 # Your preferred application launcher
 set $menu ~/.config/sway/script/bemenu.sh
@@ -42,7 +42,7 @@ set $brightness_size 2
 # Resize size
 set $resize_size 5
 # Links
-set $url_focus https://portal.nebula.org/reporting/library
+set $url_focus https://mosaicdx.com/
 set $url_manual https://community.frame.work/
 
 # Load system config.

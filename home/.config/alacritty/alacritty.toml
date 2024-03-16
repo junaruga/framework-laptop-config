@@ -1,0 +1,131 @@
+import = [
+"~/.config/alacritty/framework.toml",
+"~/.config/alacritty/thinkpad-x1.toml",
+]
+live_config_reload = true
+
+[colors.bright]
+black = "#666666"
+blue = "#81a2be"
+cyan = "#54ced6"
+green = "#9ec400"
+magenta = "#b77ee0"
+red = "#ff3334"
+white = "#282a2e"
+yellow = "#f0c674"
+
+[colors.cursor]
+cursor = "#4e9a06"
+text = "CellBackground"
+
+[colors.normal]
+black = "#1d1f21"
+blue = "#81a2be"
+cyan = "#70c0ba"
+green = "#b5bd68"
+magenta = "#b294bb"
+red = "#cc6666"
+white = "#373b41"
+yellow = "#e6c547"
+
+[colors.primary]
+background = "#1d1f21"
+foreground = "#c5c8c6"
+
+[colors.vi_mode_cursor]
+cursor = "#ffcc99"
+text = "CellBackground"
+
+[env]
+TERM = "alacritty"
+
+[[hints.enabled]]
+command = "xdg-open"
+post_processing = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.binding]
+key = "U"
+mods = "Control|Shift"
+
+[hints.enabled.mouse]
+enabled = false
+mods = "None"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Semicolon"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "First"
+key = 7
+mode = "Vi|~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "Last"
+key = 5
+mode = "Vi|~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "F"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "D"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "S"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Space"
+mode = "~Search"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "Space"
+mode = "Vi|~Search"
+mods = "Alt"
+
+[scrolling]
+history = 10000
+
+[selection]
+save_to_clipboard = false
+semantic_escape_chars = ",│`|\"' ()[]{}<>\t"
+
+[window]
+opacity = 0.8
+
+[window.padding]
+x = 2
+y = 2
