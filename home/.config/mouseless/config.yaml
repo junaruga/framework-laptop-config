@@ -98,6 +98,8 @@ layers:
     d: speed 0.3
     f: speed 0.1
 
+    v: button right
+
     u: scroll down
     i: scroll up
     # Go Back
@@ -110,8 +112,6 @@ layers:
     k: move  0 -1
     l: move  1  0
     semicolon: layer nav
-
-    v: button right
 
     n: button right
     m: button right
