@@ -40,9 +40,9 @@ mouseDecelerationCurve: 3.0
 
   # Always return to the base layer on any layer.
   - &return-to-base
-    leftmeta: layer base
-    # leftalt: layer base
-    rightalt: layer base
+    # leftmeta: layer base
+    leftalt: layer base
+    # rightalt: layer base
   # Toggle the layer control.
   - &toggle-layer-control
     # leftmeta: tap-hold-next-release leftmeta ; toggle-layer control ; 0
@@ -83,7 +83,6 @@ layers:
     <<: *return-to-base
 
     space: button left
-    n: button right
 
     # Close Tab
     q: rightctrl+w
@@ -112,12 +111,19 @@ layers:
     l: move  1  0
     semicolon: layer nav
 
+    v: button right
+
+    n: button right
+    m: button right
+
 - name: nav
   passThrough: true
   bindings:
     <<: *common
     <<: *return-to-base
     <<: *toggle-layer-control
+
+    space: rightshift
 
     q: reload-config
 
