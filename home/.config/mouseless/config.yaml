@@ -43,6 +43,7 @@ mouseDecelerationCurve: 3.0
     # leftmeta: layer base
     leftalt: layer base
     # rightalt: layer base
+
   # Toggle the layer control.
   - &toggle-layer-control
     # leftmeta: tap-hold-next-release leftmeta ; toggle-layer control ; 0
