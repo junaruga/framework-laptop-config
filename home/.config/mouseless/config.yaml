@@ -46,6 +46,7 @@ mouseDecelerationCurve: 3.0
 
   # Toggle the layer control.
   - &toggle-layer-control
+    leftmeta: tap-hold-next-release leftmeta ; toggle-layer mouse ; 0
     # leftmeta: tap-hold-next-release leftmeta ; toggle-layer control ; 0
     # leftalt: tap-hold-next-release leftalt ; toggle-layer control ; 0
     space: tap-hold-next-release space ; toggle-layer control ; 0
@@ -56,25 +57,28 @@ layers:
     <<: *common
     <<: *toggle-layer-control
 
+    d: tap-hold-next-release d ; toggle-layer symbol-shift ; 0
+    f: tap-hold-next-release f ; toggle-layer symbol ; 0
+
+    j: tap-hold-next-release j ; toggle-layer symbol ; 0
+    k: tap-hold-next-release k ; toggle-layer symbol-shift ; 0
+
 - name: control
   passThrough: true
   bindings:
     a: esc
-    # Toggle fcitx5 for Japanese input.
-    s: exec fcitx5-remote -t
-    # Set the compose key keycode (125) assigned
-    # in <~/.config/xkb/symbols/custom>.
-    d: 125
+    s: layer nav
+    d: layer mouse
     f: tab
-
-    # u: tab
-    # i: esc
 
     h: backspace
     j: enter
-    k: layer mouse
-    l: layer nav
-    semicolon: layer symbol
+    # Compose key: Set the compose key keycode (125) assigned.
+    # in <~/.config/xkb/symbols/custom>.
+    k: 125
+    # Japanese input: Toggle fcitx5 for Japanese input.
+    l: exec fcitx5-remote -t
+    # semicolon: layer symbol
 
 - name: mouse
   # When true, keys that are not mapped keep their original meaning.
