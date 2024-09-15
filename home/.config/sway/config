@@ -203,10 +203,10 @@ bindsym $mod+Shift+t border normal $border_size
 # You can send windows there and get them back later.
 #
 # Move the currently focused window to the scratchpad
-bindsym $mod+Shift+z move scratchpad
+bindsym $mod+z move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+z scratchpad show
+bindsym $mod+x scratchpad show
 
 # Fn/Media keys
 # $ xev -event keyboard
@@ -254,7 +254,10 @@ bindsym Shift+XF86AudioMedia exec $browser $url_manual
 
 # Other bindings
 # Start browser
+bindsym $mod+n exec $browser
 bindsym $mod+Shift+w exec $browser
+# Restart Mouseless
+bindsym $mod+m exec systemctl --user restart mouseless.service
 
 # Resizing containers
 mode "resize" {
