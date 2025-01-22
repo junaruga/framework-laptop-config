@@ -46,10 +46,12 @@ mouseDecelerationCurve: 3.0
 
   # Toggle the layer control.
   - &toggle-layer-control
-    leftmeta: tap-hold-next-release leftmeta ; toggle-layer mouse ; 0
+    # leftctrl: tap-hold-next-release leftctrl ; toggle-layer mouse ; 0
+    leftmeta: tap-hold-next-release leftmeta ; toggle-layer control ; 0
+    # leftmeta: tap-hold-next-release leftmeta ; toggle-layer mouse ; 0
     # leftmeta: tap-hold-next-release leftmeta ; toggle-layer control ; 0
     # leftalt: tap-hold-next-release leftalt ; toggle-layer control ; 0
-    space: tap-hold-next-release space ; toggle-layer control ; 0
+    # space: tap-hold-next-release space ; toggle-layer control ; 0
 
 layers:
 - name: base
@@ -67,17 +69,14 @@ layers:
   passThrough: true
   bindings:
     a: esc
-    s: layer nav
-    d: layer mouse
-    f: tab
+
+    d: layer nav
+    f: layer mouse
+
+    i: tab
 
     h: backspace
     j: enter
-    # Compose key: Set the compose key keycode (125) assigned.
-    # in <~/.config/xkb/symbols/custom>.
-    k: 125
-    # Japanese input: Toggle fcitx5 for Japanese input.
-    l: exec fcitx5-remote -t
     # semicolon: layer symbol
 
 - name: mouse
@@ -176,9 +175,6 @@ layers:
     # backquote
     # z: grave
     z: tap-hold-next-release grave ; leftctrl ; 0
-    # x: delete
-    x: tap-hold-next-release delete ; leftshift ; 0
-    c: insert
 
     y: k6
     u: k7
@@ -220,6 +216,8 @@ layers:
     o: rightshift+k9
     p: rightshift+k0
 
+    h: delete
+    j: insert
     k: rightshift+minus
     l: rightshift+equal
     # double-quote

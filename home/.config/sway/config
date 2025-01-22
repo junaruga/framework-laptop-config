@@ -32,7 +32,7 @@ set $menu ~/.config/sway/script/bemenu.sh
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # Browser
-set $browser firefox-wayland
+set $browser firefox
 # Volume size
 set $volume_size_short 1
 set $volume_size 5
