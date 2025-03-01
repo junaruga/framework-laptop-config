@@ -194,9 +194,10 @@ bindsym $mod+s focus parent
 bindsym $mod+Shift+s focus child
 # Hide and toggle the bar.
 bindsym $mod+g bar mode toggle
-# Disable or enable the window title bar.
-bindsym $mod+t border pixel $border_size
-bindsym $mod+Shift+t border normal $border_size
+# Enable the window title bar.
+bindsym $mod+t border normal $border_size
+# Disable the window title bar.
+bindsym $mod+Shift+t border pixel $border_size
 
 # Scratchpad
 # Sway has a "scratchpad", which is a bag of holding for windows.
@@ -247,17 +248,18 @@ bindsym $mod+p exec $browser https://fedoramagazine.org/using-i3-with-multiple-m
 # Use grimshot.
 bindsym Print exec grimshot save area
 bindsym Shift+Print exec grimshot save screen
-bindsym $mod2+Print exec grimshot save active
+bindsym $mod+Print exec grimshot save active
 # Framework Laptop F12: XF86AudioMedia
 bindsym XF86AudioMedia exec $browser $url_focus
 bindsym Shift+XF86AudioMedia exec $browser $url_manual
 
 # Other bindings
 # Start browser
-bindsym $mod+n exec $browser
 bindsym $mod+Shift+w exec $browser
 # Restart Mouseless
 bindsym $mod+m exec systemctl --user restart mouseless.service
+# Stop Mouseless
+bindsym $mod+n exec systemctl --user stop mouseless.service
 
 # Resizing containers
 mode "resize" {
@@ -357,6 +359,10 @@ bar {
 # Use NetworkManager to manage wireless networks on tray.
 # An alternative is `tmtui`.
 exec /usr/bin/nm-applet --indicator
+
+# Bluetooth
+exec /usr/bin/blueman-applet
+
 # Run Japanese input daemon.
 # https://wiki.archlinux.org/title/Fcitx5
 # The Alacritty has an issue for Japanese input with fcitx5.

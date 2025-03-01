@@ -22,6 +22,8 @@ startMouseSpeed: 0.0
 # Same for deceleration.
 mouseDecelerationTime: 200.0
 mouseDecelerationCurve: 3.0
+# Two keys must be pressed within this duration to activate a combo. (ms)
+comboTime: 50
 
 # The best way for hodling keys is
 # `a_key: tap-hold-next-release a_key ; something ; 0`.
@@ -29,13 +31,12 @@ mouseDecelerationCurve: 3.0
 .definitions:
   # Layer common bindings.
   - &common
+    a: tap-hold-next-release a ; leftshift ; 0
+
     z: tap-hold-next-release z ; leftctrl ; 0
-    x: tap-hold-next-release x ; leftshift ; 0
-    # TODO: Comment out as the response for c key is not good.
-    # Can't use leftalt as it is assigned.
-    # c: tap-hold-next-release c ; rightalt ; 0
-    comma: tap-hold-next-release comma ; rightalt ; 0
-    dot: tap-hold-next-release dot ; rightshift ; 0
+
+    semicolon: tap-hold-next-release semicolon ; rightshift ; 0
+
     slash: tap-hold-next-release slash ; rightctrl ; 0
 
   # Always return to the base layer on any layer.
@@ -46,12 +47,7 @@ mouseDecelerationCurve: 3.0
 
   # Toggle the layer control.
   - &toggle-layer-control
-    # leftctrl: tap-hold-next-release leftctrl ; toggle-layer mouse ; 0
-    leftmeta: tap-hold-next-release leftmeta ; toggle-layer control ; 0
-    # leftmeta: tap-hold-next-release leftmeta ; toggle-layer mouse ; 0
-    # leftmeta: tap-hold-next-release leftmeta ; toggle-layer control ; 0
-    # leftalt: tap-hold-next-release leftalt ; toggle-layer control ; 0
-    # space: tap-hold-next-release space ; toggle-layer control ; 0
+    leftmeta: toggle-layer control
 
 layers:
 - name: base
@@ -60,16 +56,19 @@ layers:
     <<: *toggle-layer-control
 
     d: tap-hold-next-release d ; toggle-layer symbol-shift ; 0
+    # s+d: toggle-layer symbol-shift
     f: tap-hold-next-release f ; toggle-layer symbol ; 0
+    # d+f: toggle-layer symbol
 
     j: tap-hold-next-release j ; toggle-layer symbol ; 0
+    # j+k: toggle-layer symbol
     k: tap-hold-next-release k ; toggle-layer symbol-shift ; 0
+    # k+l: toggle-layer symbol-shift
 
 - name: control
   passThrough: true
   bindings:
     a: esc
-
     d: layer nav
     f: layer mouse
 
@@ -77,7 +76,6 @@ layers:
 
     h: backspace
     j: enter
-    # semicolon: layer symbol
 
 - name: mouse
   # When true, keys that are not mapped keep their original meaning.
@@ -127,15 +125,15 @@ layers:
     <<: *return-to-base
     <<: *toggle-layer-control
 
-    space: rightshift
+    space: leftshift
 
     q: reload-config
 
-    a: layer mouse
+    a: leftshift
+    s: leftctrl
     # Can't use leftalt as it is assigned.
-    s: rightalt
-    d: rightctrl
-    f: rightshift
+    d: rightalt
+    f: leftshift
 
     u: pagedown
     i: pageup
