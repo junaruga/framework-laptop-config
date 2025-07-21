@@ -12,7 +12,7 @@ set $mod Mod4
 # https://support.mozilla.org/en-US/questions/1084123
 set $mod2 Mod1
 # Border size
-set $border_size 5
+set $border_size 4
 # Direction keys like vim.
 set $left h
 set $down j
@@ -260,6 +260,10 @@ bindsym $mod+Shift+w exec $browser
 bindsym $mod+m exec systemctl --user restart mouseless.service
 # Stop Mouseless
 bindsym $mod+n exec systemctl --user stop mouseless.service
+# Open ChatGPT
+bindsym $mod+c exec $browser https://chatgpt.com/
+# Suspend
+bindsym $mod+Shift+g exec systemctl suspend
 
 # Resizing containers
 mode "resize" {
@@ -331,10 +335,23 @@ mode "shortcut" {
     bindsym $mod+Shift+o move container to workspace number 9
     bindsym $mod+Shift+p move container to workspace number 10
 
+    bindsym $mod+semicolon mode "logout"
     # Return to default mode
     bindsym $mod+a mode "default"
 }
 bindsym $mod+semicolon mode "shortcut"
+
+mode "logout" {
+    bindsym r exec systemctl reboot; mode default
+    # q: quit
+    bindsym q exec systemctl poweroff; mode default
+    bindsym s exec systemctl suspend; mode default
+    # logout from sway.
+    bindsym e exit
+
+    # Return to default mode
+    bindsym $mod+a mode "default"
+}
 
 # Status Bar
 # Read `man 5 sway-bar` for more information about this section.

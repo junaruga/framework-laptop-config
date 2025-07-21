@@ -2,11 +2,12 @@
 # https://community.frame.work/t/using-elementary-os-on-the-framework-laptop/4453
 output eDP-1 scale 1.2
 
-# As Framework Laptop's touchpad click doesn't work, enabling tap-to-click
-# is better.
+# When Framework Laptop's touchpad click doesn't work, enable tap-to-click or
+# check the connection of the touchpad cable.
+# https://guides.frame.work/Guide/Touchpad+Replacement+Guide/90
 input type:touchpad {
     # tap: tap-to-click
-    tap enabled
+    # tap enabled
     # drag: tap-to-drag
     # https://wayland.freedesktop.org/libinput/doc/latest/tapping.html#tap-and-drag
     drag enabled
