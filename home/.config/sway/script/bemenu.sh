@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Add PATH for the searched commands.
+PATH="$PATH:$HOME/bin" \
 bemenu-run \
   --list 7 \
   --prompt 'bemenu' \

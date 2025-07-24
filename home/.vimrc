@@ -187,12 +187,15 @@ nnoremap <Space>M :tabm +1<CR>
 
 " Buffer
 " List buffers.
-nnoremap <Space>bl :ls<CR>
+nnoremap <Space>L :ls<CR>
 " Move to buffer <N>.
-nnoremap <Space>bu :bu 
+nnoremap <Space>G :bu 
+" Move to previous buffer.
+nnoremap <Space>K :bN<CR>
 " Move to next buffer.
-nnoremap <Space>bn :bn<CR>
-nnoremap <Space>bp :bN<CR>
+nnoremap <Space>J :bn<CR>
+" Delete the current buffer<CR>
+nnoremap <Space>D :bd<CR>
 
 " Others
 " Turn on/off the line numbers.

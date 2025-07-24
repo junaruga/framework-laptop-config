@@ -3,7 +3,7 @@ Description=Mouseless Service
 
 [Service]
 Type=simple
-ExecStart=/home/jaruga/.go/bin/mouseless
+ExecStart=/home/jaruga/.local/bin/mouseless
 Restart=on-failure
 RestartSec=10
 KillMode=process

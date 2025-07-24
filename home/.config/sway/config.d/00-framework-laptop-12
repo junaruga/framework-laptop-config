@@ -1,7 +1,7 @@
 # vim: set filetype=swayconfig :
 
 gaps inner 4
-output eDP-1 scale 1.1
+output eDP-1 scale 1.0
 
 # Run always mouseless when reloading the sway config file.
 # https://github.com/jbensmann/mouseless
