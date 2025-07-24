@@ -3,7 +3,8 @@ xkb_symbols "basic" {
     // Left Win (Super) as Compose key.
     // This setting is needed so that the LWIN key's keycode can be used in
     // other applicatons on this xkb.
-    key <LWIN> { type[Group1] = "ONE_LEVEL", [ Multi_key ] };
+    key <LWIN> { type[Group1] = "TWO_LEVEL", [ Alt_L, Multi_key ] };
+    modifier_map Mod1 { <LWIN> };
 
     // Left Alt as Left Super key.
     key <LALT> { type[Group1] = "ONE_LEVEL", [ Super_L ] };
@@ -11,7 +12,7 @@ xkb_symbols "basic" {
     // Shift + Escape as Compose key.
     // key <ESC> { type[Group1] = "TWO_LEVEL", [ Escape, Multi_key ] };
 
-    // CAPS as Escape key, Shift + Escape as Compose key.
+    // CAPS as Escape key, Shift + CAPS as Compose key.
     key <CAPS> {
         type[Group1] = "TWO_LEVEL",
         symbols[Group1] = [ Escape, Multi_key ],
