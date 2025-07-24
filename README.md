@@ -6,7 +6,7 @@ The following config files are included:
 
 * Sway (window manager)
   * Using Waybar.
-  * Using `home/.xkb/`. Sway has a feature to load `~/.xkb`.
+  * Using `home/.config/xkb/`. Sway has a feature to load `~/.config/xkb`.
 * i3 (window manager)
   * Using i3blocks with [i3blocks-contrib](https://github.com/vivien/i3blocks-contrib) original version and my [forked custom version](https://github.com/junaruga/i3blocks-contrib/tree/mine) until my pull-requests are merged in the original version.
   * Using `etc/X11/xorg.conf.d/*.conf` for the input device settings.
