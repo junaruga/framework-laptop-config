@@ -40,7 +40,7 @@ Public Domain (CC0)
 
 ## File list
 
-The directory structure is equivalent with the actual directores under the root "/". You can run the following command to find the directory structure.
+The directory structure is equivalent with the actual directories under the root "/". You can run the following command to find the directory structure.
 
 ```
 $ tree -a etc/ home/ usr/
