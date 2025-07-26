@@ -30,6 +30,8 @@ Public Domain (CC0)
 
 ![Laptop 12 Sway screenshot](image/screenshot_laptop_12_sway.png)
 
+![Laptop 12 Sway screenshot programming](image/screenshot_laptop_12_sway_programming.png)
+
 ### Framework Laptop 13 Sway
 
 ![Laptop 13 Sway screenshot](image/screenshot_laptop_13_sway.png)
