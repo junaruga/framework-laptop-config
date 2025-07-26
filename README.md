@@ -26,13 +26,17 @@ Public Domain (CC0)
 
 ## Screenshots
 
-### Sway
+### Framework Laptop 12 Sway
 
-![Sway screenshot](image/screenshot_sway.png)
+![Laptop 12 Sway screenshot](image/screenshot_laptop_12_sway.png)
 
-### i3
+### Framework Laptop 13 Sway
 
-![i3 screenshot](image/screenshot_i3.png)
+![Laptop 13 Sway screenshot](image/screenshot_laptop_13_sway.png)
+
+### Framework Laptop 13 i3
+
+![Laptop 13 i3 screenshot](image/screenshot_laptop_13_i3.png)
 
 ## File list
 
