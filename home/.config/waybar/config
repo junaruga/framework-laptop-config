@@ -11,7 +11,7 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     "modules-left": ["sway/workspaces"],
-    "modules-center": ["custom/menu", "custom/close_window", "custom/virtual_keyboard", "sway/mode"],
+    "modules-center": ["sway/mode", "custom/menu", "custom/close_window", "custom/virtual_keyboard"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "battery", "sway/language", "clock", "tray"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
