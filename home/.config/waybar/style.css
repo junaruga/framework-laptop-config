@@ -87,6 +87,14 @@ window#waybar.chromium {
     color: #ffffff;
 }
 
+#custom-menu,
+#custom-virtual_keyboard,
+#custom-close_window {
+    padding: 0 10px;
+    margin: 0 8px;
+    color: #ffffff;
+}
+
 #window,
 #workspaces {
     margin: 0 4px;
@@ -207,9 +215,21 @@ label:focus {
     background-color: #eb4d4b;
 }
 
+#custom-menu {
+    background-color: #333333;
+}
+
+#custom-close_window {
+    background-color: #333333;
+}
+
+#custom-virtual_keyboard {
+    background-color: #333333;
+}
+
 #tray {
-    background-color: #777777;
-    /* background-color: #2980b9; */
+    background-color: #333333;
+    /* background-color: #000000; */
 }
 
 #tray > .passive {

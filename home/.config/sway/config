@@ -27,7 +27,7 @@ set $right l
 set $term WINIT_UNIX_BACKEND=x11 alacritty
 set $term2 terminator
 # Your preferred application launcher
-set $menu ~/.config/sway/script/bemenu.sh
+set $menu ~/.config/sway/script/toggle_bemenu.sh
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
@@ -42,7 +42,6 @@ set $brightness_size 2
 # Resize size
 set $resize_size 5
 # Links
-set $url_focus https://mosaicdx.com/
 set $url_manual https://community.frame.work/
 
 # Load system config.
@@ -181,7 +180,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 # Make the current focus maximize
 # https://github.com/swaywm/sway/issues/5397#issuecomment-1052213161
-bindsym $mod+d exec ~/.config/sway/script/sway-maximize.sh -d $border_size
+bindsym $mod+Shift+f exec ~/.config/sway/script/sway-maximize.sh -d $border_size
 # Make the current focus fullscreen
 bindsym $mod+f fullscreen
 # Toggle the current focus between tiling and floating mode
@@ -189,9 +188,9 @@ bindsym $mod+o floating toggle
 # Swap focus between the tiling area and the floating area
 bindsym $mod+Shift+o focus mode_toggle
 # Move focus to the parent container
-bindsym $mod+s focus parent
+bindsym $mod+d focus parent
 # Focus the child container
-bindsym $mod+Shift+s focus child
+bindsym $mod+s focus child
 # Hide and toggle the bar.
 bindsym $mod+g bar mode toggle
 # Enable the window title bar.
@@ -250,8 +249,7 @@ bindsym Print exec grimshot save area
 bindsym Shift+Print exec grimshot save screen
 bindsym $mod+Print exec grimshot save active
 # Framework Laptop F12: XF86AudioMedia
-bindsym XF86AudioMedia exec $browser $url_focus
-bindsym Shift+XF86AudioMedia exec $browser $url_manual
+bindsym XF86AudioMedia exec $browser $url_manual
 
 # Other bindings
 # Start browser
@@ -306,10 +304,7 @@ mode "shortcut" {
     bindsym i exec "brightnessctl --device intel_backlight set $brightness_size%+"
 
     # Open a website.
-    bindsym o exec $browser $url_focus
-    bindsym Shift+o exec $browser $url_manual
-
-    bindsym p exec $browser $url_manual
+    bindsym o exec $browser $url_manual
 
     # Workspaces
     # Switch to workspace

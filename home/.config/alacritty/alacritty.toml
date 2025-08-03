@@ -116,7 +116,7 @@ history = 10000
 
 [selection]
 save_to_clipboard = false
-semantic_escape_chars = ",│`|\"' ()[]{}<>\t"
+semantic_escape_chars = "│`|\"' ()[]{}<>\t"
 
 [window]
 opacity = 0.8

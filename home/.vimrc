@@ -70,6 +70,11 @@ set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 " https://wiki.archlinux.org/title/Alacritty#Mouse_not_working_properly_in_Vim
 set ttymouse=sgr
 
+" Reload files when they change.
+" Note :e! to reopen/reload the file.
+set autoread
+autocmd FocusGained,BufEnter * checktime
+
 " Text
 autocmd FileType text set tabstop=2|set shiftwidth=2|set expandtab|set softtabstop=2
 autocmd FileType yaml set tabstop=2|set shiftwidth=2|set expandtab|set softtabstop=2
