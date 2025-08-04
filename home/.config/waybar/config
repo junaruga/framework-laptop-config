@@ -10,8 +10,8 @@
     "layer": "top",
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
-    "modules-left": ["sway/workspaces"],
-    "modules-center": ["sway/mode", "custom/menu", "custom/close_window", "custom/virtual_keyboard"],
+    "modules-left": ["custom/menu", "custom/close_window", "custom/virtual_keyboard", "sway/workspaces"],
+    "modules-center": ["sway/mode"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "battery", "sway/language", "clock", "tray"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -24,12 +24,11 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 21,
         "spacing": 10
     },
     "clock": {
         "format": "{:%a %d %b %Y %H:%M}",
-        // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
@@ -98,15 +97,15 @@
         "on-click": "pavucontrol",
     },
     "custom/menu": {
-        "format": "Apps",
+        "format": "App ",
         "on-click": "~/.config/sway/script/toggle_bemenu.sh",
     },
     "custom/close_window": {
-        "format": "Close",
+        "format": "🗙",
         "on-click": "~/.config/sway/script/close_window.sh",
     },
     "custom/virtual_keyboard": {
-        "format": "Virt Kbd",
+        "format": "Kbd",
         "on-click": "~/script/toggle_virtual_keyboard.sh",
     }
 }

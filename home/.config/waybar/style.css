@@ -87,11 +87,21 @@ window#waybar.chromium {
     color: #ffffff;
 }
 
-#custom-menu,
-#custom-virtual_keyboard,
+#custom-menu {
+    padding: 0 15px;
+    margin: 0 4px;
+    color: #ffffff;
+}
+
 #custom-close_window {
-    padding: 0 10px;
-    margin: 0 8px;
+    padding: 0 25px;
+    margin: 0 4px;
+    color: #ffffff;
+}
+
+#custom-virtual_keyboard {
+    padding: 0 20px;
+    margin: 0 4px;
     color: #ffffff;
 }
 
@@ -216,15 +226,15 @@ label:focus {
 }
 
 #custom-menu {
-    background-color: #333333;
+    background-color: #000000;
 }
 
 #custom-close_window {
-    background-color: #333333;
+    background-color: #000000;
 }
 
 #custom-virtual_keyboard {
-    background-color: #333333;
+    background-color: #000000;
 }
 
 #tray {
