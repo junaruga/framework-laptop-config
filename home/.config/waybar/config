@@ -89,7 +89,7 @@
     "clock": {
         "format": "{:%a %d %b %H:%M}",
         "tooltip-format": "{calendar}",
-        "format-alt": "{:%Y-%m-%d %H:%M}"
+        "format-alt": "{:%Y-%m-%d %a %H:%M}"
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
