@@ -9,6 +9,7 @@ PROG="wvkbd-deskintl"
 if ! pgrep "${PROG}" > /dev/null; then
     "${PROG}" \
         --fn "Sans 20" \
+        -L 500 \
         --hidden \
         --alpha 204 \
         &

@@ -17,7 +17,7 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 0 4px;
     background-color: transparent;
     color: #ffffff;
     /* Use box-shadow instead of border so the text isn't offset */
@@ -64,18 +64,18 @@ window#waybar {
 #clock,
 #network,
 #tray,
+#custom-virtual_keyboard,
 #custom-menu,
-#custom-close_window,
-#custom-virtual_keyboard {
-    padding: 0 10px;
+#custom-close_window {
+    padding: 0 4px;
     margin: 0 4px;
     color: #ffffff;
 }
 
+#custom-virtual_keyboard,
 #custom-menu,
-#custom-close_window,
-#custom-virtual_keyboard {
-    min-width: 80px;
+#custom-close_window {
+    min-width: 72px;
     /* See https://www.w3schools.com/css/css3_shadows_box.asp */
     box-shadow: inset -3px -3px #ffffff;
 }
@@ -104,9 +104,9 @@ window#waybar {
 #clock,
 #network,
 #tray,
+#custom-virtual_keyboard,
 #custom-menu,
-#custom-close_window,
-#custom-virtual_keyboard {
+#custom-close_window {
     background-color: #000000;
     /* background-color: rgba(19, 13, 13, 0.8); */
 }
