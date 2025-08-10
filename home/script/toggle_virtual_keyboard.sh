@@ -2,21 +2,18 @@
 
 set -eu
 
-# Set the wvkbd-mobintl file path.
-KBD_PROG="${HOME}/bin/wvkbd-mobintl"
-KBD_PROG_NAME="$(basename "${KBD_PROG}")"
+# Add PATH for the searched commands.
+PATH="$PATH:$HOME/bin" \
+PROG="wvkbd-deskintl"
 
-PID="$(pgrep "${KBD_PROG_NAME}")" || :
-if [ "${PID}" = "" ]; then
-    "${KBD_PROG}" \
-        -H 500 \
-        -L 400 \
-        --fn "Monospace 40" \
+if ! pgrep "${PROG}" > /dev/null; then
+    "${PROG}" \
+        --fn "Monospace 22" \
         --hidden \
         --alpha 204 \
         &
-    PID="$(pgrep "${KBD_PROG_NAME}")"
+        # --fn "Sans 22"
 fi
 
-# Toogle
-kill -s SIGRTMIN "${PID}"
+# Toggle
+pkill --signal SIGRTMIN "${PROG}"
