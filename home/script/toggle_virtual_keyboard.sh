@@ -8,11 +8,10 @@ PROG="wvkbd-deskintl"
 
 if ! pgrep "${PROG}" > /dev/null; then
     "${PROG}" \
-        --fn "Monospace 22" \
+        --fn "Sans 20" \
         --hidden \
         --alpha 204 \
         &
-        # --fn "Sans 22"
 fi
 
 # Toggle

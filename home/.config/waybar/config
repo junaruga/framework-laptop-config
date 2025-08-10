@@ -115,7 +115,7 @@
         "on-click": "~/.config/sway/script/close_window.sh",
     },
     "custom/virtual_keyboard": {
-        "format": "Kbd",
+        "format": "Kbd ⌨͕",
         "tooltip-format": "Virtual keyboard",
         "on-click": "~/script/toggle_virtual_keyboard.sh",
     }
