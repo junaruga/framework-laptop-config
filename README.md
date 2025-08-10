@@ -1,22 +1,22 @@
 # Configuration files for Framework Laptop
 
-This repository is to share a part of my configuration files on Framework Laptop for people who are interested in using Sway or i3 window manager on Framework Laptop. My environment is Fedora Linux. I don't intend to update this repository regularly. The files are just a snapshot.
+This repository is to share a part of my configuration files on Framework Laptop. My environment is Fedora Linux. I don't intend to update this repository regularly. The files are just a snapshot.
 
-The following config files are included:
+The following application's config files are included:
 
-* Sway (window manager)
-  * Using Waybar.
-  * Using `home/.config/xkb/`. Sway has a feature to load `~/.config/xkb`.
-* i3 (window manager)
-  * Using i3blocks with [i3blocks-contrib](https://github.com/vivien/i3blocks-contrib) original version and my [forked custom version](https://github.com/junaruga/i3blocks-contrib/tree/mine) until my pull-requests are merged in the original version.
-  * Using `etc/X11/xorg.conf.d/*.conf` for the input device settings.
-  * Using Compton.
-  * Using `.Xmodmap`. Only i3 loads the `.Xmodmap`. Sway doesn't load it.
-  * Setting `/usr/share/X11/xkb/symbols/custom` for custom keyboard layout. See [this page on my blog](https://junaruga.hatenablog.com/entry/2022/08/11/165301) for details.
+* [Sway](https://swaywm.org/) (window manager)
+  * `home/.config/xkb/` for keyboard mappings. Sway has a feature to load `~/.config/xkb`.
+  * [Waybar](https://github.com/Alexays/Waybar)
+  * [Wvkbd](https://git.sr.ht/~proycon/wvkbd)
+* [i3](https://i3wm.org/) (window manager)
+  * [i3blocks](https://github.com/vivien/i3blocks) with [i3blocks-contrib](https://github.com/vivien/i3blocks-contrib) original version and my [forked custom version](https://github.com/junaruga/i3blocks-contrib/tree/mine) until my pull-requests are merged in the original version.
+  * `etc/X11/xorg.conf.d/*.conf` for the input device settings.
+  * `.Xmodmap`. Only i3 loads the `.Xmodmap`. Sway doesn't load it.
+  * `/usr/share/X11/xkb/symbols/custom` for custom keyboard layout. See [this page on my blog](https://junaruga.hatenablog.com/entry/2022/08/11/165301) for details.
 * VIM: In the `.vimrc`, the `highlight` settings are related to the terminals.
-* Alacritty (terminal)
-* Terminator (terminal)
-* Mouseless
+* [Alacritty](https://alacritty.org/) (terminal)
+* [Terminator](https://gnome-terminator.org/) (terminal)
+* [Mouseless](https://github.com/jbensmann/mouseless)
 * `.bash_profile`: It seems that this file is only loaded by i3, not by Sway.
 * `.bashrc`: Only contents related to window managers and terminals.
 
