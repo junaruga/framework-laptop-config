@@ -64,18 +64,14 @@ window#waybar {
 #clock,
 #network,
 #tray,
-#custom-virtual_keyboard,
-#custom-menu,
-#custom-close_window {
-    padding: 0 4px;
+#custom-virtual_keyboard {
+    padding: 0 8px;
     margin: 0 4px;
     color: #ffffff;
 }
 
-#custom-virtual_keyboard,
-#custom-menu,
-#custom-close_window {
-    min-width: 72px;
+#custom-virtual_keyboard {
+    min-width: 100px;
     /* See https://www.w3schools.com/css/css3_shadows_box.asp */
     box-shadow: inset -3px -3px #ffffff;
 }
@@ -104,9 +100,7 @@ window#waybar {
 #clock,
 #network,
 #tray,
-#custom-virtual_keyboard,
-#custom-menu,
-#custom-close_window {
+#custom-virtual_keyboard {
     background-color: #000000;
     /* background-color: rgba(19, 13, 13, 0.8); */
 }

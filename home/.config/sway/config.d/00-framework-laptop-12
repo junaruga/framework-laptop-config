@@ -3,7 +3,5 @@
 gaps inner 4
 output eDP-1 scale 1.0
 
-for_window [app_id="firefox"] border normal $border_size
-
 # Auto-rotate display.
 exec ~/.config/sway/script/auto_rotate_display.sh &

@@ -10,7 +10,7 @@ xkb_symbols "basic" {
     key <LALT> { type[Group1] = "ONE_LEVEL", [ Super_L ] };
 
     // Shift + Escape as Compose key.
-    // key <ESC> { type[Group1] = "TWO_LEVEL", [ Escape, Multi_key ] };
+    key <ESC> { type[Group1] = "TWO_LEVEL", [ Escape, Multi_key ] };
 
     // CAPS as Escape key, Shift + CAPS as Compose key.
     key <CAPS> {

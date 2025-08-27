@@ -12,8 +12,6 @@
     "height": 30, // Waybar height (to be removed for auto height)
     "modules-left": [
         "custom/virtual_keyboard",
-        "custom/menu",
-        "custom/close_window",
         "sway/workspaces"
     ],
     "modules-center": ["sway/mode"],
@@ -108,15 +106,5 @@
         "format": "⌨͕",
         "tooltip-format": "Virtual keyboard",
         "on-click": "~/script/toggle_virtual_keyboard.sh",
-    },
-    "custom/menu": {
-        "format": "",
-        "tooltip-format": "Launch applications",
-        "on-click": "~/.config/sway/script/toggle_bemenu.sh",
-    },
-    "custom/close_window": {
-        "format": "🗙",
-        "tooltip-format": "Close focused window",
-        "on-click": "~/.config/sway/script/close_window.sh",
     }
 }

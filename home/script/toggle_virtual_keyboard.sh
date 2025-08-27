@@ -4,15 +4,18 @@ set -eu
 
 # Add PATH for the searched commands.
 PATH="$PATH:$HOME/bin" \
-PROG="wvkbd-deskintl"
+PROG="wvkbd-split"
 
 if ! pgrep "${PROG}" > /dev/null; then
     "${PROG}" \
-        --fn "Sans 20" \
-        -L 500 \
         --hidden \
         --alpha 204 \
         &
+    # "${PROG}" \
+    #     --hidden \
+    #     --alpha 80 \
+    #     --non-exclusive \
+    #     &
 fi
 
 # Toggle
