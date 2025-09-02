@@ -6,6 +6,12 @@ set -eu
 PATH="$PATH:$HOME/bin" \
 PROG="wvkbd-split"
 
+# SIGUSR1 = hide, SIGUSR2 = show, SIGRTMIN = toggle
+SIGNAL="SIGRTMIN"
+if [ "${#}" -gt 0 ]; then
+    SIGNAL="${1}"
+fi
+
 if ! pgrep "${PROG}" > /dev/null; then
     "${PROG}" \
         --hidden \
@@ -18,5 +24,4 @@ if ! pgrep "${PROG}" > /dev/null; then
     #     &
 fi
 
-# Toggle
-pkill --signal SIGRTMIN "${PROG}"
+pkill --signal "${SIGNAL}" "${PROG}"

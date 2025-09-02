@@ -105,6 +105,6 @@
     "custom/virtual_keyboard": {
         "format": "⌨͕",
         "tooltip-format": "Virtual keyboard",
-        "on-click": "~/script/toggle_virtual_keyboard.sh",
+        "on-click": "~/script/control_wvkbd.sh"
     }
 }
