@@ -5,9 +5,5 @@ output eDP-1 scale 1.0
 
 # Auto-rotate display.
 exec ~/.config/sway/script/auto_rotate_display.sh &
-
-# Gesture to show/hide the virtual keyboard wvkvd.
-# This setting is only for touchpad. The touchscreen is not supported.
-# https://github.com/swaywm/sway/issues/1904
-bindgesture swipe:3:up exec ~/script/control_wvkbd.sh SIGUSR2
-bindgesture swipe:3:down exec ~/script/control_wvkbd.sh SIGUSR1
+# Run the gesture daemon lisgd.
+exec ~/bin/lisgd &
